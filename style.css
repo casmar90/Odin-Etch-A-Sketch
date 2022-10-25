@@ -1,0 +1,17 @@
+body {
+    background-color: grey;
+}
+
+.container {
+    /* display: flex; */
+    width: 640px;
+    height: 640px;
+}
+
+.pixel {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px black solid;
+    display: inline-block;
+}
