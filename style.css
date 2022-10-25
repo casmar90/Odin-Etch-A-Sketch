@@ -1,24 +1,118 @@
+html,
 body {
-    background-color: white;
-    /* margin: 0px; */
+    background-color: rgb(224, 224, 224);
+    margin: 0px;
+    font-family: Inconsolata !important;
 }
 
-#container {
+#title {
+    display: flex;
+    margin: 32px auto 32px auto;
+    width: 512px;
+    height: 32px;
+    /* outline: 1px solid black; */
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+    font-size: 290%;
+}
+
+#footer {
     margin: auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-github {
+    color: black;
+    opacity: 75%;
+}
+
+.fa-github:hover {
+    color: black;
+    transform: scalex(-1);
+}
+
+#grid {
+    display: flex;
+    margin: auto;
     flex-wrap: wrap;
     width: 512px;
     height: 512px;
+    max-width: 512px;
+    max-height: 512px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 32px auto 32px auto;
+    width: 512px;
+}
+
+button {
+    width: 128px;
+    height: 64px;
+    font-family: Inconsolata !important;
+    /* width: 100%; */
+    /* outline: 1px solid black; */
+    border: 0px;
+    color: white;
+}
+
+button:hover {
+    font-weight: bold;
+    outline: 1px solid black;
+    z-index: 1;
 }
 
 .pixel {
-    width: 32px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
+    max-width: 32px;
+    max-height: 32px;
     background-color: white;
     box-sizing: border-box;
     outline: 1px solid black;
 }
 
-.black{
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.black {
     background-color: black;
+}
+
+.rainbow {
+    background: linear-gradient(45deg,
+            #FE0000 16.66%,
+            #FD8C00 16.66%, 33.32%,
+            #FFE500 33.32%, 49.98%,
+            #119F0B 49.98%, 66.64%,
+            #0644B3 66.64%, 83.3%,
+            #C22EDC 83.3%);
+    color: white;
+    text-shadow: 0 0 3px black, 0 0 5px black;
+}
+
+.white,
+.clear {
+    background-color: white;
+    color: black;
 }
