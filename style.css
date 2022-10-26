@@ -6,7 +6,7 @@ body {
     font-size: 16px;
 }
 
-#container{
+#container {
     display: flex;
     flex-direction: column;
 
@@ -60,17 +60,16 @@ body {
 
 button {
     flex-shrink: 1;
-    font-size: 16px; 
-    min-width: 128px;
-    /* max-width: 128px; */
+    font-size: 16px;
+    min-width: 64px;
     height: 64px;
     font-family: Inconsolata !important;
-    outline: 0px solid black;
+    outline: 1px solid black;
     border: 0px;
     box-sizing: border-box;
     color: white;
-    transition:  all  0.3s ease-in-out;
-    padding:0;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
 }
 
 button:hover {
@@ -103,12 +102,12 @@ button:hover {
 
 .rainbow {
     background: linear-gradient(45deg,
-    #FE0000 16.66%,
-    #FD8C00 16.66%, 33.32%,
-    #FFE500 33.32%, 49.98%,
-    #119F0B 49.98%, 66.64%,
-    #0644B3 66.64%, 83.3%,
-    #C22EDC 83.3%);
+            #FE0000 16.66%,
+            #FD8C00 16.66%, 33.32%,
+            #FFE500 33.32%, 49.98%,
+            #119F0B 49.98%, 66.64%,
+            #0644B3 66.64%, 83.3%,
+            #C22EDC 83.3%);
     color: white;
     text-shadow: 0 0 3px black, 0 0 5px black;
 }
@@ -125,9 +124,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* font-size: 14px; */
-
+    font-size: 14px;
 }
 
 .fa-github {

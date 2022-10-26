@@ -6,42 +6,63 @@ for (let i = 0; i < 256; i++) {
 }
 
 
+$(document).ready(function(){
+
+    let isDown = false;   // Tracks status of mouse button
+  
+    $(document).mousedown(function() {
+      isDown = true;      // When mouse goes down, set isDown to true
+    })
+    .mouseup(function() {
+      isDown = false;    // When mouse goes up, set isDown to false
+    });
+  
+    $(".pixel").mouseover(function(){
+      if(isDown) {        // Only change css if mouse is down
+        //  $(this).css({background:"#333333"});
+        item.style.backgroundColor = "#FF0000";
+      }
+    });
+  });
+
+
 
 
 // item.addEventListener('mousedown',  () => {
-    // });
-    
-        drawing();        
+// });
+
+drawing();
+
 function drawing() {
     let items = document.querySelectorAll('.pixel');
     items.forEach(item => {
-    
-            item.addEventListener('mouseover',  () => {
-                item.style.backgroundColor = "#FF0000";
-            });
 
+        item.addEventListener('mousedown', () => {
+            item.style.backgroundColor = "#FF0000";
         });
-    }
 
-    // let down = false;
-    // $(document).mousedown(function() {
-    //     down = true;
-    // }).mouseup(function() {
-    //     down = false;  
-    // });
-    // $("#example").mouseout(function() {
-    //     if(down) {
-    //         console.log("down");  
-    //     } 
-    //     else {
-    //         console.log("up");   
-    //     }
-    // });
-    
+    });
+}
 
-    
-    // item.addEventListener('click', drawing, false);
-    // item.addEventListener('mouseover', drawing, false);
+// let down = false;
+// $(document).mousedown(function() {
+//     down = true;
+// }).mouseup(function() {
+//     down = false;  
+// });
+// $("#example").mouseout(function() {
+//     if(down) {
+//         console.log("down");  
+//     } 
+//     else {
+//         console.log("up");   
+//     }
+// });
+
+
+
+// item.addEventListener('click', drawing, false);
+// item.addEventListener('mouseover', drawing, false);
 
 // function drawing() {
 // };
