@@ -3,35 +3,23 @@ body {
     background-color: rgb(224, 224, 224);
     margin: 0px;
     font-family: Inconsolata !important;
+    font-size: 16px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+
 }
 
 #title {
     display: flex;
     margin: 32px auto 32px auto;
-    width: 512px;
     height: 32px;
-    /* outline: 1px solid black; */
     align-items: center;
     justify-content: center;
     font-weight: 200;
     font-size: 290%;
-}
-
-#footer {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fa-github {
-    color: black;
-    opacity: 75%;
-}
-
-.fa-github:hover {
-    color: black;
-    transform: scalex(-1);
 }
 
 #grid {
@@ -40,35 +28,18 @@ body {
     flex-wrap: wrap;
     width: 512px;
     height: 512px;
+    /* height: 100%; */
+
+
     max-width: 512px;
     max-height: 512px;
-}
-
-#buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 32px auto 32px auto;
-    width: 512px;
-}
-
-button {
-    width: 128px;
-    height: 64px;
-    font-family: Inconsolata !important;
-    /* width: 100%; */
-    /* outline: 1px solid black; */
-    border: 0px;
-    color: white;
-}
-
-button:hover {
-    font-weight: bold;
-    outline: 1px solid black;
-    z-index: 1;
+    /* flex-grow:1; */
 }
 
 .pixel {
+    /* display: flex;
+    flex-direction: row;
+    flex:1; */
     width: 100%;
     height: 100%;
     max-width: 32px;
@@ -77,6 +48,37 @@ button:hover {
     box-sizing: border-box;
     outline: 1px solid black;
 }
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 32px auto 32px auto;
+    max-width: 512px;
+    justify-content: center;
+}
+
+button {
+    flex-shrink: 1;
+    font-size: 16px; 
+    min-width: 128px;
+    /* max-width: 128px; */
+    height: 64px;
+    font-family: Inconsolata !important;
+    outline: 0px solid black;
+    border: 0px;
+    box-sizing: border-box;
+    color: white;
+    transition:  all  0.3s ease-in-out;
+    padding:0;
+}
+
+button:hover {
+    outline: 1px solid black;
+    z-index: 1;
+    transform: scale(1.1);
+}
+
 
 .red {
     background-color: red;
@@ -101,12 +103,12 @@ button:hover {
 
 .rainbow {
     background: linear-gradient(45deg,
-            #FE0000 16.66%,
-            #FD8C00 16.66%, 33.32%,
-            #FFE500 33.32%, 49.98%,
-            #119F0B 49.98%, 66.64%,
-            #0644B3 66.64%, 83.3%,
-            #C22EDC 83.3%);
+    #FE0000 16.66%,
+    #FD8C00 16.66%, 33.32%,
+    #FFE500 33.32%, 49.98%,
+    #119F0B 49.98%, 66.64%,
+    #0644B3 66.64%, 83.3%,
+    #C22EDC 83.3%);
     color: white;
     text-shadow: 0 0 3px black, 0 0 5px black;
 }
@@ -115,4 +117,25 @@ button:hover {
 .clear {
     background-color: white;
     color: black;
+
+}
+
+#footer {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* font-size: 14px; */
+
+}
+
+.fa-github {
+    color: black;
+    opacity: 75%;
+}
+
+.fa-github:hover {
+    color: black;
+    transform: scalex(-1);
 }
