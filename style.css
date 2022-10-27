@@ -57,7 +57,7 @@ body {
     max-height: 32px; */
     background-color: white;
     box-sizing: border-box;
-    outline: 1px solid black;
+    outline: 1px solid rgb(224, 224, 224);
 }
 
 #buttons {
@@ -67,6 +67,8 @@ body {
     margin: 32px auto 32px auto;
     max-width: 512px;
     justify-content: center;
+    
+
 }
 
 button {
@@ -75,16 +77,17 @@ button {
     min-width: 64px;
     height: 64px;
     font-family: Inconsolata !important;
-    outline: 1px solid black;
     border: 0px;
     box-sizing: border-box;
     color: white;
     transition: all 0.2s ease-in-out;
     padding: 0;
+    
+    outline: 1px solid black;
 }
 
 button:hover {
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
     z-index: 1;
     transform: scale(1.1);
 }
@@ -92,23 +95,33 @@ button:hover {
 
 .red {
     background-color: red;
+    outline: 1px solid red;
 }
 
 .green {
     background-color: green;
+    outline: 1px solid green;
 }
 
 .blue {
     background-color: blue;
+    outline: 1px solid blue;
 }
 
 .yellow {
-    background-color: yellow;
     color: black;
+    background-color: yellow;
+    outline: 1px solid yellow;
 }
 
 .black {
     background-color: black;
+    outline: 1px solid black;
+}
+
+
+button.rainbow{
+    outline: 1px solid black;
 }
 
 .rainbow {
@@ -121,13 +134,14 @@ button:hover {
             #C22EDC 83.3%);
     color: white;
     text-shadow: 0 0 3px black, 0 0 5px black;
+    outline: 0px;
 }
 
 .white,
 .clear {
     background-color: white;
     color: black;
-
+    /* outline: 1px solid white; */
 }
 
 #footer {
