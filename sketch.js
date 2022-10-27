@@ -11,6 +11,7 @@
    // return this.value;
    gridSize = this.value;
    createGrid();
+   drawing();
  }
 
 
