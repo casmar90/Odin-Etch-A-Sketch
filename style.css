@@ -160,6 +160,12 @@ button:hover {
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
+    width: 512px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto auto 32px auto;
+  
   }
   
   /* The slider itself */
@@ -173,12 +179,10 @@ button:hover {
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
+    margin:0; 
   }
   
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
+
   
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
   .slider::-webkit-slider-thumb {
@@ -186,13 +190,13 @@ button:hover {
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    background: black;
     cursor: pointer; /* Cursor on hover */
   }
   
   .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    background: black; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
