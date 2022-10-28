@@ -38,7 +38,7 @@
  }
 
  // BUTTONS
- let selectedColumn = 'red';
+ let selectedColor = 'red';
 
  const red = document.querySelector('.red');
  const green = document.querySelector('.green');
@@ -47,14 +47,23 @@
  const black = document.querySelector('.black');
  const eraser = document.querySelector('.eraser');
 
- red.onclick = () => selectedColumn = ('red');
- //  red.onclick = () => red.style.color = 'violet';
+red.addEventListener('mouseleave', function() {
+  this.classList.remove('buttonHover');
+});
 
- green.onclick = () => selectedColumn = ('green');
- blue.onclick = () => selectedColumn = ('blue');
- yellow.onclick = () => selectedColumn = ('yellow');
- black.onclick = () => selectedColumn = ('black');
- eraser.onclick = () => selectedColumn = ('eraser');
+red.addEventListener('click', function() {
+  this.classList.add('buttonHover');
+});
+
+// red.addEventListener('mousedown', function() {
+//   this.classList.add('active');
+// });
+
+ green.onclick = () => selectedColor = ('green');
+ blue.onclick = () => selectedColor = ('blue');
+ yellow.onclick = () => selectedColor = ('yellow');
+ black.onclick = () => selectedColor = ('black');
+ eraser.onclick = () => selectedColor = ('eraser');
 
  //  let r = Math.floor(Math.random() * 255);
  //  let g = Math.floor(Math.random() * 255);
@@ -67,14 +76,14 @@
  //      return "rgb(" + r + "," + g + "," + b + ")";
  //  }
  //  console.log(rgb(r, g, b));
- //  let randomColumn = rgb(r, g, b);
+ //  let randomColor = rgb(r, g, b);
 
- //   document.getElementById("myH2").style.Column 
+ //   document.getElementById("myH2").style.color 
 
- //  let randomColumn = rgb(155, 102, 102);
+ //  let randomColor = rgb(155, 102, 102);
 
  const rainbow = document.querySelector('.rainbow');
- rainbow.onclick = () => selectedColumn = ('rainbow');
+ rainbow.onclick = () => selectedColor = ('rainbow');
 
  const clear = document.querySelector('.clear');
  let items = document.querySelectorAll('.pixel');
@@ -91,7 +100,7 @@
      items.forEach(item => {
          item.addEventListener('mouseover', () => {
              item.className = 'pixel';
-             item.classList.add(selectedColumn);
+             item.classList.add(selectedColor);
          });
      });
  }

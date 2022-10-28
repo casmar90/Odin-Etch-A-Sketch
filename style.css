@@ -78,12 +78,29 @@ button {
     transition: all 0.2s ease-in-out;
     aspect-ratio: 1 / 1;
     /* max-width: 64px; */
+   
+
 }
 
 button:hover {
     z-index: 1;
     transform: scale(1.1);
+    cursor: pointer;
+
+
 }
+
+.buttonHover{
+    /* pointer-events: none; */
+    transform: scale(1) !important;
+    
+}
+
+/* .active{
+    text-decoration: underline;
+} */
+
+
 
 .red {
     background-color: red;
