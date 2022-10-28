@@ -1,4 +1,8 @@
-html,
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background-color: rgb(224, 224, 224);
     margin: 0px;
@@ -9,7 +13,9 @@ body {
 #container {
     display: flex;
     flex-direction: column;
-
+    margin: auto;
+  
+    max-width: 320px;
 }
 
 #title {
@@ -20,22 +26,22 @@ body {
     justify-content: center;
     font-weight: 200;
     font-size: 290%;
+
+
 }
 
 #grid {
     display: flex;
     margin: auto;
     flex-wrap: wrap;
-    width: 512px;
-    height: 512px;
-    max-width: 512px;
-    max-height: 512px;
 
-    /* height: 100%; */
-    /* flex-grow:1; */
+    /* width: 320px;
+    height: 320px; */
+
+    aspect-ratio : 1 / 1;
 }
 
-.row {
+.column {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -44,7 +50,7 @@ body {
 }
 
 .pixel {
-    
+
     display: flex;
     flex-direction: row;
 
@@ -60,31 +66,37 @@ body {
     outline: 1px solid rgb(224, 224, 224);
 }
 
-#buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 32px auto 32px auto;
-    max-width: 512px;
-    justify-content: center;
-    
 
+
+
+
+#buttons {
+      /* display: flex; */
+      /* flex-wrap: wrap; */
+      margin: 32px auto 32px auto; 
+  }
+
+  .row-1, .row-2{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 button {
-    flex-shrink: 1;
-    font-size: 16px;
-    min-width: 64px;
-    height: 64px;
     font-family: Inconsolata !important;
     border: 0px;
-    box-sizing: border-box;
+    padding: 0px;
+    font-size: 16px;
     color: white;
+    min-height: 64px;
+    min-width: 0px;
+    width: 100%;
     transition: all 0.2s ease-in-out;
-    padding: 0;
     
-    outline: 1px solid black;
+    /* max-width: 64px; */
+    aspect-ratio : 1 / 1;
 }
+
 
 button:hover {
     /* outline: 1px solid black; */
@@ -119,9 +131,8 @@ button:hover {
     outline: 1px solid black;
 }
 
-
-button.rainbow{
-    outline: 1px solid black;
+button {
+    outline: 0px !important;
 }
 
 .rainbow {
@@ -132,24 +143,96 @@ button.rainbow{
             #119F0B 49.98%, 66.64%,
             #0644B3 66.64%, 83.3%,
             #C22EDC 83.3%);
-    color: white;
-    text-shadow: 0 0 3px black, 0 0 5px black;
-    outline: 0px;
-}
+            color: white;
+            text-shadow: 0 0 3px black, 0 0 5px black;
+            outline: 0px;
+        }
 
-.white,
+.eraser,
 .clear {
     background-color: white;
     color: black;
     /* outline: 1px solid white; */
 }
 
+/* The slider itself */
+.slidecontainer {
+    /* width: 100%; */
+    /* Width of the outside container */
+    /* width: 512px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto auto 32px auto;
+    
+}
+
+.slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 32px;
+    /* Specified height */
+    background: silver;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.66;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    margin: 0;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 32px;
+    /* Set a specific slider handle width */
+    height: 32px;
+    /* Slider handle height */
+    background: black;
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 32px;
+    /* Set a specific slider handle width */
+    height: 32px;
+    /* Slider handle height */
+    background: black;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.size {
+    margin: 0 0 32px 0;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
 #footer {
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    
+    padding: 10px 0 10px 0;
+    
 }
 
 .fa-github {
@@ -163,54 +246,26 @@ button.rainbow{
 }
 
 
+ @media only screen and (min-width: 512px) {
 
+    #container {
+     
+        max-width: 512px  !important;
+        /* margin: auto 37.5%; */
 
+    }
 
+    .row-1{
+       justify-content: right;
+    }
 
+    .row-2{
+        justify-content: left;
+     }
 
-
-
-
-
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
-    width: 512px;
+#buttons{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto auto 32px auto;
-  
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-    margin:0; 
-  }
-  
+    flex-wrap: nowrap;
+} 
 
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: black;
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: black; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+  } 

@@ -16,28 +16,32 @@
 
 <body>
     <div id="container">
-        <div id="title">Etch-A-Sketch</div>
-        <div id="grid"></div>
-        <div id="buttons">
-            <button class="red">Red</button>
-            <button class="green">Green</button>
-            <button class="blue">Blue</button>
-            <button class="yellow">Yellow</button>
-            <button class="black">Black</button>
-            <button class="white">White</button>
-            <button class="rainbow">Rainbow</button>
-            <button class="clear">Clear</button>
-        </div>
-
-
-        <div class="slidecontainer">
-            <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
-            <p>Value: <span id="demo"></span></p>
-          </div>
-
-          
-        <footer id="footer">Built with ❤️ and 🍕 <br>Mariusz Ciastoń 2022&nbsp;&nbsp;<a href="https://github.com/mariuszciaston/" target="_blank"> <i class="fab fa-github fa-2x" aria-hidden="true"></i></a></footer>
+        <header id="header">
+            <div id="title">Etch-A-Sketch</div>
+        </header>
+        <main id="main">
+            <div id="grid"></div>
+            <div id="buttons">
+                <div class="row-1">
+                    <button class="red">Red</button>
+                    <button class="green">Green</button>
+                    <button class="blue">Blue</button>
+                    <button class="yellow">Yellow</button>
+                </div>
+                <div class="row-2">
+                    <button class="black">Black</button>
+                    <button class="eraser">Eraser</button>
+                    <button class="rainbow">Rainbow</button>
+                    <button class="clear">Clear</button>
+                </div>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+                <p class="size">Grid size:&nbsp;<span id="value"></span></p>
+            </div>
+        </main>
     </div>
+    <footer id="footer">Built with ❤️ and 🍕 <br>Mariusz Ciastoń 2022&nbsp;&nbsp;<a href="https://github.com/mariuszciaston/" target="_blank"> <i class="fab fa-github fa-2x" aria-hidden="true"></i></a></footer>
 </body>
 
 </html>

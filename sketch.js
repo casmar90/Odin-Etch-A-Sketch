@@ -1,94 +1,86 @@
  let gridSize = 16;
 
- //Grid size slider
+ // GRID RANGE SLIDER
  let slider = document.getElementById("myRange");
- let output = document.getElementById("demo");
- output.innerHTML = slider.value; // Display the default slider value
+ let output = document.getElementById("value");
+ output.innerHTML = slider.value + ' x ' + slider.value; // Display grid size
 
  // Update the current slider value (each time you drag the slider handle)
  slider.oninput = function () {
-   output.innerHTML = this.value;
-   // return this.value;
-   gridSize = this.value;
-   createGrid();
-   drawing();
+     output.innerHTML = this.value + ' x ' + this.value;
+     gridSize = this.value;
+     createGrid();
+     drawing();
  }
 
-
+ // GRID SETUP
  createGrid()
-function createGrid() {
 
-  const resetGrid = document.getElementById('grid');
-  resetGrid.innerHTML = '';
+ function createGrid() {
 
-  for (let i = 0; i < gridSize; i++) {
-    let row = document.createElement('div');
-    row.classList.add('row');
-    row.id = "row-" + (i + 1);
-    document.getElementById('grid').appendChild(row);
-   }
+     const resetGrid = document.getElementById('grid');
+     resetGrid.innerHTML = '';
 
-   for (let i = 0; i < gridSize; i++) {
      for (let i = 0; i < gridSize; i++) {
-       let pixel = document.createElement('div');
-       pixel.classList.add('pixel');
-       document.getElementById('row-' + (i + 1)).appendChild(pixel);
+         let column = document.createElement('div');
+         column.classList.add('column');
+         column.id = "column-" + (i + 1);
+         document.getElementById('grid').appendChild(column);
      }
-   }
 
+     for (let i = 0; i < gridSize; i++) {
+         for (let i = 0; i < gridSize; i++) {
+             let pixel = document.createElement('div');
+             pixel.classList.add('pixel');
+             document.getElementById('column-' + (i + 1)).appendChild(pixel);
+         }
+     }
  }
 
- // Buttons
- let selectedColor = 'red';
+ // BUTTONS
+ let selectedcolumnor = 'red';
 
  const red = document.querySelector('.red');
- red.onclick = () => selectedColor = ('red')
-
  const green = document.querySelector('.green');
- green.onclick = () => selectedColor = ('green');
-
  const blue = document.querySelector('.blue');
- blue.onclick = () => selectedColor = ('blue');
-
  const yellow = document.querySelector('.yellow');
- yellow.onclick = () => selectedColor = ('yellow');
-
  const black = document.querySelector('.black');
- black.onclick = () => selectedColor = ('black');
+ const eraser = document.querySelector('.eraser');
 
- const white = document.querySelector('.white');
- white.onclick = () => selectedColor = ('white');
+ red.onclick = () => selectedcolumnor = ('red')
+ green.onclick = () => selectedcolumnor = ('green');
+ blue.onclick = () => selectedcolumnor = ('blue');
+ yellow.onclick = () => selectedcolumnor = ('yellow');
+ black.onclick = () => selectedcolumnor = ('black');
+ eraser.onclick = () => selectedcolumnor = ('eraser');
 
+ let r = Math.floor(Math.random() * 255);
+ let g = Math.floor(Math.random() * 255);
+ let b = Math.floor(Math.random() * 255);
+ console.log(r);
+ console.log(g);
+ console.log(b);
 
- // let r = Math.floor(Math.random() * 255);
- // let g = Math.floor(Math.random() * 255);
- // let b = Math.floor(Math.random() * 255);
- // console.log(r);
- // console.log(g);
- // console.log(b);
+ function rgb(r, g, b) {
+     return "rgb(" + r + "," + g + "," + b + ")";
+ }
+ console.log(rgb(r, g, b));
+ let randomcolumnor = rgb(r, g, b);
 
- // function rgb(r, g, b){
- //     return "rgb("+r+","+g+","+b+")";
- //   }
- //   console.log(rgb (r, g, b));
+ //   document.getElementById("myH2").style.columnor 
 
- //   document.getElementById("myH2").style.color 
-
- //  let randomColor = rgb(155, 102, 102);
-
-
-
+ //  let randomcolumnor = rgb(155, 102, 102);
 
  const rainbow = document.querySelector('.rainbow');
- rainbow.onclick = () => selectedColor = ('rainbow');
+ rainbow.onclick = () => selectedcolumnor = ('rainbow');
 
 
 
  const clear = document.querySelector('.clear');
  let items = document.querySelectorAll('.pixel');
  clear.onclick = () => {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => item.className = 'pixel');
+     let items = document.querySelectorAll('.pixel');
+     items.forEach(item => item.className = 'pixel');
  }
 
 
@@ -96,19 +88,19 @@ function createGrid() {
 
 
 
- // Drawing
+ // DRAWING
  drawing();
 
  function drawing() {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => {
+     let items = document.querySelectorAll('.pixel');
+     items.forEach(item => {
 
-     item.addEventListener('mouseover', () => {
-       item.className = 'pixel';
-       item.classList.add(selectedColor);
+         item.addEventListener('mouseover', () => {
+             item.className = 'pixel';
+             item.classList.add(selectedcolumnor);
+         });
+
+
+
      });
-
-
-
-   });
  }
