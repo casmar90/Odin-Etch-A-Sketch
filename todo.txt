@@ -1,0 +1,7 @@
+drawing only on mouseover and mouse down
+
+random color -> rainbow
+
+add active class to current color button
+
+unhover for all buttons
