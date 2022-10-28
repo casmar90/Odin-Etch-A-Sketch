@@ -38,7 +38,7 @@
  }
 
  // BUTTONS
- let selectedcolumnor = 'red';
+ let selectedColumn = 'red';
 
  const red = document.querySelector('.red');
  const green = document.querySelector('.green');
@@ -47,34 +47,34 @@
  const black = document.querySelector('.black');
  const eraser = document.querySelector('.eraser');
 
- red.onclick = () => selectedcolumnor = ('red')
- green.onclick = () => selectedcolumnor = ('green');
- blue.onclick = () => selectedcolumnor = ('blue');
- yellow.onclick = () => selectedcolumnor = ('yellow');
- black.onclick = () => selectedcolumnor = ('black');
- eraser.onclick = () => selectedcolumnor = ('eraser');
+ red.onclick = () => selectedColumn = ('red');
+ //  red.onclick = () => red.style.color = 'violet';
 
- let r = Math.floor(Math.random() * 255);
- let g = Math.floor(Math.random() * 255);
- let b = Math.floor(Math.random() * 255);
- console.log(r);
- console.log(g);
- console.log(b);
+ green.onclick = () => selectedColumn = ('green');
+ blue.onclick = () => selectedColumn = ('blue');
+ yellow.onclick = () => selectedColumn = ('yellow');
+ black.onclick = () => selectedColumn = ('black');
+ eraser.onclick = () => selectedColumn = ('eraser');
 
- function rgb(r, g, b) {
-     return "rgb(" + r + "," + g + "," + b + ")";
- }
- console.log(rgb(r, g, b));
- let randomcolumnor = rgb(r, g, b);
+ //  let r = Math.floor(Math.random() * 255);
+ //  let g = Math.floor(Math.random() * 255);
+ //  let b = Math.floor(Math.random() * 255);
+ //  console.log(r);
+ //  console.log(g);
+ //  console.log(b);
 
- //   document.getElementById("myH2").style.columnor 
+ //  function rgb(r, g, b) {
+ //      return "rgb(" + r + "," + g + "," + b + ")";
+ //  }
+ //  console.log(rgb(r, g, b));
+ //  let randomColumn = rgb(r, g, b);
 
- //  let randomcolumnor = rgb(155, 102, 102);
+ //   document.getElementById("myH2").style.Column 
+
+ //  let randomColumn = rgb(155, 102, 102);
 
  const rainbow = document.querySelector('.rainbow');
- rainbow.onclick = () => selectedcolumnor = ('rainbow');
-
-
+ rainbow.onclick = () => selectedColumn = ('rainbow');
 
  const clear = document.querySelector('.clear');
  let items = document.querySelectorAll('.pixel');
@@ -83,24 +83,15 @@
      items.forEach(item => item.className = 'pixel');
  }
 
-
-
-
-
-
  // DRAWING
  drawing();
 
  function drawing() {
      let items = document.querySelectorAll('.pixel');
      items.forEach(item => {
-
          item.addEventListener('mouseover', () => {
              item.className = 'pixel';
-             item.classList.add(selectedcolumnor);
+             item.classList.add(selectedColumn);
          });
-
-
-
      });
  }
