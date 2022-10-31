@@ -227,13 +227,16 @@ button {
 .fa-github {
     color: black;
     opacity: 75%;
-}
+    transition: transform 0.3s ease-in-out;
+    margin-left: 4px;
+  }
+  
+  .fa-github:hover {
+    /* opacity: 100%; */
+    transform: rotate(360deg) scale(1.2);
+  }
 
-.fa-github:hover {
-    color: black;
-    transform: scalex(-1);  
-}
-
+  
 @media only screen and (min-width: 512px) {
 
     #container {
