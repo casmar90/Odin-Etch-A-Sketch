@@ -106,7 +106,7 @@
        if (selectedColor == 'rainbow') {
          item.classList.remove(selectedColor);
          item.style.backgroundColor = rgb();
-      
+
          item.style.outline = '1px solid';
          item.style.outlineColor = item.style.backgroundColor;
 
@@ -126,4 +126,8 @@
  clear.onclick = () => {
    let items = document.querySelectorAll('.pixel');
    items.forEach(item => item.className = 'pixel');
+   items.forEach(item => item.style.backgroundColor = "");
+   items.forEach(item => item.style.outlineColor = "");
+
+
  }
