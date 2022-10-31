@@ -90,7 +90,7 @@ button:hover {
 
 }
 
-.buttonHover {
+.buttonPushed {
     /* pointer-events: none; */
     transform: scale(1) !important;
 

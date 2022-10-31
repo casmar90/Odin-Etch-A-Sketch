@@ -45,8 +45,9 @@
  const yellow = document.querySelector('.yellow');
  const black = document.querySelector('.black');
  const eraser = document.querySelector('.eraser');
+ const rainbow = document.querySelector('.rainbow');
 
- // Go back to original size after clicking or on mouse leave 
+ // BACK TO ORIGINAL SIZE AFTER CLICK
  const buttons = document.querySelectorAll('button');
 
  buttons.forEach((button) => {
@@ -78,7 +79,7 @@
  yellow.onclick = () => selectedColor = ('yellow');
  black.onclick = () => selectedColor = ('black');
  eraser.onclick = () => selectedColor = ('eraser');
-
+ rainbow.onclick = () => selectedColor = ('rainbow');
 
  // RANDOM COLOR GENERATOR
  let r = '',
@@ -92,8 +93,6 @@
    return "rgb(" + r + "," + g + "," + b + ")";
  }
  console.log(rgb(r, g, b));
- const rainbow = document.querySelector('.rainbow');
- rainbow.onclick = () => selectedColor = ('rainbow');
 
  // DRAWING
  drawing();
@@ -115,7 +114,6 @@
          item.style.backgroundColor = "";
          item.style.outlineColor = "";
        }
-
      });
    });
  }
@@ -128,6 +126,4 @@
    items.forEach(item => item.className = 'pixel');
    items.forEach(item => item.style.backgroundColor = "");
    items.forEach(item => item.style.outlineColor = "");
-
-
  }

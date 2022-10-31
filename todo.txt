@@ -1,5 +1,6 @@
 drawing only on mouseover and mouse down
-
+optimize css?
+beautify footer
 
 Done:
 random color -> rainbow
