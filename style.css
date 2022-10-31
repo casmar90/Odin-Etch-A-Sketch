@@ -75,30 +75,27 @@ button {
     min-height: 64px;
     min-width: 0px;
     width: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     aspect-ratio: 1 / 1;
     /* max-width: 64px; */
-   
+
 
 }
 
 button:hover {
-    z-index: 1;
+    z-index: 2;
     transform: scale(1.1);
     cursor: pointer;
 
 
 }
 
-.buttonHover{
+.buttonHover {
     /* pointer-events: none; */
     transform: scale(1) !important;
-    
+
 }
 
-/* .active{
-    text-decoration: underline;
-} */
 
 
 
@@ -130,6 +127,12 @@ button:hover {
 
 button {
     outline: 0px !important;
+}
+
+.active {
+    outline: 2px solid black !important; 
+    font-weight: 700;
+    z-index: 1;  
 }
 
 .rainbow {
@@ -219,7 +222,6 @@ button {
     bottom: 0;
     width: 100%;
     padding: 10px 0 10px 0;
-
 }
 
 .fa-github {
@@ -229,7 +231,7 @@ button {
 
 .fa-github:hover {
     color: black;
-    transform: scalex(-1);
+    transform: scalex(-1);  
 }
 
 @media only screen and (min-width: 512px) {
