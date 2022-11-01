@@ -50,7 +50,7 @@
  const buttons = document.querySelectorAll('button');
 
  buttons.forEach((button) => {
-   button.addEventListener('click', () => {
+   button.addEventListener('mousedown', () => {
      button.classList.add('buttonPushed');
      button.addEventListener('mouseleave', function () {
        button.classList.remove('buttonPushed');
@@ -59,7 +59,7 @@
  });
 
  // MARK ACTIVE BUTTON
- container.addEventListener('click', handleClick, false);
+ container.addEventListener('mousedown', handleClick, false);
 
  function handleClick(e) {
    const {
