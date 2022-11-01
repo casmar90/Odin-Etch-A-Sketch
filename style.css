@@ -21,7 +21,6 @@ body {
     display: flex;
     margin: 32px auto 32px auto;
     height: 32px;
-    align-items: center;
     justify-content: center;
     font-weight: 200;
     font-size: 290%;
@@ -29,9 +28,7 @@ body {
 
 #grid {
     display: flex;
-    margin: auto;
-    flex-wrap: wrap;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1; // prevents things below grid from glitching/moving up and down a little
 }
 
 .column {
@@ -41,21 +38,15 @@ body {
 }
 
 .pixel {
-
-    display: flex;
-    flex-direction: row;
-    flex: 1;
     padding-top: 100%;
     width: 100%;
     height: 100%;
     background-color: white;
-    box-sizing: border-box;
     outline: 1px solid rgb(224, 224, 224);
+    ;
 }
 
 #buttons {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
     margin: 32px auto 32px auto;
 }
 
@@ -67,37 +58,27 @@ body {
 }
 
 button {
-    font-family: Inconsolata !important;
+    font-family: inherit;
+    font-size: inherit;
     border: 0px;
     padding: 0px;
-    font-size: 16px;
     color: white;
     min-height: 64px;
     min-width: 0px;
     width: 100%;
     transition: transform 0.2s ease-in-out;
     aspect-ratio: 1 / 1;
-    /* max-width: 64px; */
-
-
 }
 
 button:hover {
     z-index: 2;
     transform: scale(1.1);
     cursor: pointer;
-
-
 }
 
 .buttonPushed {
-    /* pointer-events: none; */
     transform: scale(1) !important;
-
 }
-
-
-
 
 .red {
     background-color: red;
@@ -125,14 +106,10 @@ button:hover {
     outline: 1px solid black;
 }
 
-button {
-    outline: 0px !important;
-}
-
 .active {
-    outline: 2px solid black !important; 
+    outline: 2px solid black !important;
     font-weight: 700;
-    z-index: 1;  
+    z-index: 1;
 }
 
 .rainbow {
@@ -143,9 +120,8 @@ button {
             #119F0B 49.98%, 66.64%,
             #0644B3 66.64%, 83.3%,
             #C22EDC 83.3%);
-    color: white;
+
     text-shadow: 0 0 3px black, 0 0 5px black;
-    outline: 0px;
 }
 
 .eraser,
@@ -155,59 +131,56 @@ button {
 }
 
 .slidecontainer {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: auto auto 32px auto;
+    margin: auto auto 32px auto; */
 }
 
 .slider {
     -webkit-appearance: none;
-    /* Override default CSS styles */
     appearance: none;
     width: 100%;
-    /* Full-width */
     height: 32px;
-    /* Specified height */
     background: silver;
-    /* Grey background */
-    outline: none;
-    /* Remove outline */
+    /* outline: none; */
     opacity: 0.66;
-    /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s;
-    /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+    /* -webkit-transition: .2s;
+    transition: opacity .2s; */
     margin: 0;
+    
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* Override default look */
     appearance: none;
     width: 32px;
-    /* Set a specific slider handle width */
     height: 32px;
-    /* Slider handle height */
     background: black;
     cursor: pointer;
-    /* Cursor on hover */
+    transition: transform 0.2s ease-in-out;
 }
 
-.slider::-moz-range-thumb {
-    width: 32px;
-    /* Set a specific slider handle width */
-    height: 32px;
-    /* Slider handle height */
-    background: black;
-    /* Green background */
-    cursor: pointer;
-    /* Cursor on hover */
+.slider::-webkit-slider-thumb:hover{
+    transform: scale(1.1);
 }
+
+ .slider::-moz-range-thumb{
+    width: 32px;
+    height: 32px;
+    background: black;
+    cursor: pointer;
+    border-radius: 0px;
+    border: none;
+    transition: transform 0.2s ease-in-out;
+ }
+
+ .slider::-moz-range-thumb:hover{
+    transform: scale(1.1);
+ }
 
 .size {
-    margin: 0 0 32px 0;
+    margin: 0 0 64px 0;
     height: 32px;
     justify-content: center;
     align-items: center;
@@ -227,18 +200,16 @@ button {
 .fa-github {
     color: black;
     opacity: 75%;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin-left: 4px;
-  }
-  
-  .fa-github:hover {
-    /* opacity: 100%; */
+}
+
+.fa-github:hover {
+    opacity: 100%;
     transform: rotate(360deg) scale(1.2);
-  }
+}
 
-  
 @media only screen and (min-width: 512px) {
-
     #container {
         max-width: 512px !important;
     }
