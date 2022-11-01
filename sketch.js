@@ -13,7 +13,7 @@
  }
 
  // GRID SETUP
- createGrid()
+ createGrid();
 
  function createGrid() {
 
@@ -92,38 +92,91 @@
    b = Math.floor(Math.random() * 255);
    return "rgb(" + r + "," + g + "," + b + ")";
  }
- console.log(rgb(r, g, b));
-
  // DRAWING
- drawing();
+ //  drawing();
 
+ //  function drawing() {
+ //    let items = document.querySelectorAll('.pixel');
+ //    items.forEach(item => {
+ //      item.addEventListener('mouseover', () => {
+ //        item.className = 'pixel';
+ //        if (selectedColor == 'rainbow') {
+ //          item.classList.remove(selectedColor);
+ //          item.style.backgroundColor = rgb();
+
+ //          item.style.outline = '1px solid';
+ //          item.style.outlineColor = item.style.backgroundColor;
+
+ //        } else {
+ //          item.classList.add(selectedColor);
+ //          item.style.backgroundColor = "";
+ //          item.style.outlineColor = "";
+ //        }
+ //      });
+ //    });
+ //  }
+
+
+
+
+
+ // check if mouse is down
+ let down = false;
+ let grid = document.querySelector('#grid');
+ 
+ grid.addEventListener('mousedown', () => {
+   down = true;
+   console.log(down);
+ });
+
+ document.addEventListener('mouseup', () => {
+   down = false;
+   console.log(down);
+ });
+ 
+ 
+ 
+ drawing();
+ 
  function drawing() {
    let items = document.querySelectorAll('.pixel');
    items.forEach(item => {
-     item.addEventListener('mouseover', () => {
-       item.className = 'pixel';
-       if (selectedColor == 'rainbow') {
-         item.classList.remove(selectedColor);
-         item.style.backgroundColor = rgb();
 
-         item.style.outline = '1px solid';
-         item.style.outlineColor = item.style.backgroundColor;
+         item.addEventListener('mouseover', () => {
+           if (down) {
 
-       } else {
-         item.classList.add(selectedColor);
-         item.style.backgroundColor = "";
-         item.style.outlineColor = "";
+
+             item.className = 'pixel';
+             if (selectedColor == 'rainbow') {
+               item.classList.remove(selectedColor);
+               item.style.backgroundColor = rgb();
+
+               item.style.outline = '1px solid';
+               item.style.outlineColor = item.style.backgroundColor;
+
+             } else {
+               item.classList.add(selectedColor);
+               item.style.backgroundColor = "";
+               item.style.outlineColor = "";
+             }
+           }
+
+           });
+
+
+         });
        }
-     });
-   });
- }
 
- // CLEAR GRID
- const clear = document.querySelector('.clear');
- let items = document.querySelectorAll('.pixel');
- clear.onclick = () => {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => item.className = 'pixel');
-   items.forEach(item => item.style.backgroundColor = "");
-   items.forEach(item => item.style.outlineColor = "");
- }
+
+
+
+
+
+       // CLEAR GRID
+       const clear = document.querySelector('.clear');
+       let items = document.querySelectorAll('.pixel'); clear.onclick = () => {
+         let items = document.querySelectorAll('.pixel');
+         items.forEach(item => item.className = 'pixel');
+         items.forEach(item => item.style.backgroundColor = "");
+         items.forEach(item => item.style.outlineColor = "");
+       }
