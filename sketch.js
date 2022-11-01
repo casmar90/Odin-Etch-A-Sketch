@@ -1,6 +1,6 @@
  let gridSize = 16;
 
- // GRID RANGE SLIDER
+ // GRID SIZE SLIDER
  let slider = document.getElementById("myRange");
  let output = document.getElementById("value");
  output.innerHTML = slider.value + ' x ' + slider.value;
@@ -17,7 +17,6 @@
  createGrid();
 
  function createGrid() {
-
    const resetGrid = document.getElementById('grid');
    resetGrid.innerHTML = '';
 
@@ -27,7 +26,6 @@
      column.id = "column-" + (i + 1);
      document.getElementById('grid').appendChild(column);
    }
-
    for (let i = 0; i < gridSize; i++) {
      for (let i = 0; i < gridSize; i++) {
        let pixel = document.createElement('div');
@@ -93,138 +91,68 @@
    b = Math.floor(Math.random() * 255);
    return "rgb(" + r + "," + g + "," + b + ")";
  }
- // DRAWING
- //  drawing();
 
- //  function drawing() {
- //    let items = document.querySelectorAll('.pixel');
- //    items.forEach(item => {
- //      item.addEventListener('mouseover', () => {
- //        item.className = 'pixel';
- //        if (selectedColor == 'rainbow') {
- //          item.classList.remove(selectedColor);
- //          item.style.backgroundColor = rgb();
-
- //          item.style.outline = '1px solid';
- //          item.style.outlineColor = item.style.backgroundColor;
-
- //        } else {
- //          item.classList.add(selectedColor);
- //          item.style.backgroundColor = "";
- //          item.style.outlineColor = "";
- //        }
- //      });
- //    });
- //  }
-
-
-
-
-
- // check if mouse is down
+ // CHECK IF MOUSE BUTTON IS DOWN
  let down = false;
  let grid = document.querySelector('#grid');
 
  grid.addEventListener('mousedown', (e) => {
    down = true;
    console.log(down);
-   e.preventDefault(); //prevents block cursor from appearing
+   e.preventDefault(); // prevents "block cursor" from appearing
  });
- 
+
  document.addEventListener('mouseup', () => {
    down = false;
    console.log(down);
-  });
+ });
 
-  
+ // DRAWING
+ drawingClick();
+ drawingDrag();
 
-  drawingClick();
-  drawingDrag();
-  
-  
-  // function draw (){
-  //   item.className = 'pixel';
-  //   if (selectedColor == 'rainbow') {
-  //     item.classList.remove(selectedColor);
-  //     item.style.backgroundColor = rgb();
-  
-  //     item.style.outline = '1px solid';
-  //     item.style.outlineColor = item.style.backgroundColor;
-  
-  //   } else {
-  //     item.classList.add(selectedColor);
-  //     item.style.backgroundColor = "";
-  //     item.style.outlineColor = "";
-  //   }
-  
-  // }
-  
- 
  function drawingClick() {
    let items = document.querySelectorAll('.pixel');
    items.forEach(item => {
-     
      item.addEventListener('mousedown', () => {
-   
-      // draw ();
-         item.className = 'pixel';
-         if (selectedColor == 'rainbow') {
-             item.classList.remove(selectedColor);
-           item.style.backgroundColor = rgb();
-
-           item.style.outline = '1px solid';
-           item.style.outlineColor = item.style.backgroundColor;
-        
-         } else {
-             item.classList.add(selectedColor);
-             item.style.backgroundColor = "";
-             item.style.outlineColor = "";
-           }
-          
+       item.className = 'pixel';
+       if (selectedColor == 'rainbow') {
+         item.classList.remove(selectedColor);
+         item.style.backgroundColor = rgb();
+         item.style.outline = '1px solid';
+         item.style.outlineColor = item.style.backgroundColor;
+       } else {
+         item.classList.add(selectedColor);
+         item.style.backgroundColor = "";
+         item.style.outlineColor = "";
+       }
      });
    });
  }
 
- 
- 
  function drawingDrag() {
    let items = document.querySelectorAll('.pixel');
    items.forEach(item => {
-     
      item.addEventListener('mouseover', () => {
-       
-      if (down) {
-
-        // draw ();
-        item.className = 'pixel';
-        if (selectedColor == 'rainbow') {
-            item.classList.remove(selectedColor);
-            item.style.backgroundColor = rgb();
-
-            item.style.outline = '1px solid';
-            item.style.outlineColor = item.style.backgroundColor;
-          
-          } else {
-          item.classList.add(selectedColor);
-          item.style.backgroundColor = "";
-          item.style.outlineColor = "";
-        }
-        
-        
-      }
-    });
-  });
-}
-
-
-
-
-
-
-
-
-// CLEAR GRID
-const clear = document.querySelector('.clear');
+       if (down) {
+         item.className = 'pixel';
+         if (selectedColor == 'rainbow') {
+           item.classList.remove(selectedColor);
+           item.style.backgroundColor = rgb();
+           item.style.outline = '1px solid';
+           item.style.outlineColor = item.style.backgroundColor;
+         } else {
+           item.classList.add(selectedColor);
+           item.style.backgroundColor = "";
+           item.style.outlineColor = "";
+         }
+       }
+     });
+   });
+ }
+ 
+ // CLEAR GRID
+ const clear = document.querySelector('.clear');
  let items = document.querySelectorAll('.pixel');
  clear.onclick = () => {
    let items = document.querySelectorAll('.pixel');
