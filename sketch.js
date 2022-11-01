@@ -123,61 +123,111 @@
  // check if mouse is down
  let down = false;
  let grid = document.querySelector('#grid');
- 
+
  grid.addEventListener('mousedown', (e) => {
    down = true;
    console.log(down);
    e.preventDefault(); //prevents block cursor from appearing
  });
-
+ 
  document.addEventListener('mouseup', () => {
    down = false;
    console.log(down);
- });
+  });
+
+  
+
+  drawingClick();
+  drawingDrag();
+  
+  
+  // function draw (){
+  //   item.className = 'pixel';
+  //   if (selectedColor == 'rainbow') {
+  //     item.classList.remove(selectedColor);
+  //     item.style.backgroundColor = rgb();
+  
+  //     item.style.outline = '1px solid';
+  //     item.style.outlineColor = item.style.backgroundColor;
+  
+  //   } else {
+  //     item.classList.add(selectedColor);
+  //     item.style.backgroundColor = "";
+  //     item.style.outlineColor = "";
+  //   }
+  
+  // }
+  
  
- 
- 
- drawing();
- 
- function drawing() {
+ function drawingClick() {
    let items = document.querySelectorAll('.pixel');
    items.forEach(item => {
+     
+     item.addEventListener('mousedown', () => {
+   
+      // draw ();
+         item.className = 'pixel';
+         if (selectedColor == 'rainbow') {
+             item.classList.remove(selectedColor);
+           item.style.backgroundColor = rgb();
 
-         item.addEventListener('mouseover', () => {
-           if (down) {
-
-
-             item.className = 'pixel';
-             if (selectedColor == 'rainbow') {
-               item.classList.remove(selectedColor);
-               item.style.backgroundColor = rgb();
-
-               item.style.outline = '1px solid';
-               item.style.outlineColor = item.style.backgroundColor;
-
-             } else {
-               item.classList.add(selectedColor);
-               item.style.backgroundColor = "";
-               item.style.outlineColor = "";
-             }
+           item.style.outline = '1px solid';
+           item.style.outlineColor = item.style.backgroundColor;
+        
+         } else {
+             item.classList.add(selectedColor);
+             item.style.backgroundColor = "";
+             item.style.outlineColor = "";
            }
+          
+     });
+   });
+ }
 
-           });
+ 
+ 
+ function drawingDrag() {
+   let items = document.querySelectorAll('.pixel');
+   items.forEach(item => {
+     
+     item.addEventListener('mouseover', () => {
+       
+      if (down) {
+
+        // draw ();
+        item.className = 'pixel';
+        if (selectedColor == 'rainbow') {
+            item.classList.remove(selectedColor);
+            item.style.backgroundColor = rgb();
+
+            item.style.outline = '1px solid';
+            item.style.outlineColor = item.style.backgroundColor;
+          
+          } else {
+          item.classList.add(selectedColor);
+          item.style.backgroundColor = "";
+          item.style.outlineColor = "";
+        }
+        
+        
+      }
+    });
+  });
+}
 
 
-         });
-       }
 
 
 
 
 
 
-       // CLEAR GRID
-       const clear = document.querySelector('.clear');
-       let items = document.querySelectorAll('.pixel'); clear.onclick = () => {
-         let items = document.querySelectorAll('.pixel');
-         items.forEach(item => item.className = 'pixel');
-         items.forEach(item => item.style.backgroundColor = "");
-         items.forEach(item => item.style.outlineColor = "");
-       }
+// CLEAR GRID
+const clear = document.querySelector('.clear');
+ let items = document.querySelectorAll('.pixel');
+ clear.onclick = () => {
+   let items = document.querySelectorAll('.pixel');
+   items.forEach(item => item.className = 'pixel');
+   items.forEach(item => item.style.backgroundColor = "");
+   items.forEach(item => item.style.outlineColor = "");
+ }
