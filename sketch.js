@@ -124,9 +124,10 @@
  let down = false;
  let grid = document.querySelector('#grid');
  
- grid.addEventListener('mousedown', () => {
+ grid.addEventListener('mousedown', (e) => {
    down = true;
    console.log(down);
+   e.preventDefault(); //prevents block cursor from appearing
  });
 
  document.addEventListener('mouseup', () => {
