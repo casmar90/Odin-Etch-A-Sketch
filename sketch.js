@@ -9,7 +9,8 @@
    output.innerHTML = this.value + ' x ' + this.value;
    gridSize = this.value;
    createGrid();
-   drawing();
+   drawingClick();
+   drawingDrag();
  }
 
  // GRID SETUP
