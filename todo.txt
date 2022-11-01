@@ -1,8 +1,0 @@
-drawing only on mouseover and mouse down
-optimize css?
-
-Done:
-beautify footer
-random color -> rainbow
-unhover for all buttons
-add active class to current color button
