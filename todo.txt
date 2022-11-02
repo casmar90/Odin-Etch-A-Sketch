@@ -1,3 +1,2 @@
-toggle grid ?
-color picker ?
 change layout on desktop to horizontal ???
+code refactoring

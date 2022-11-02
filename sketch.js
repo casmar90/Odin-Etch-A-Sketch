@@ -9,7 +9,6 @@
    output.innerHTML = this.value + ' x ' + this.value;
    gridSize = this.value;
    createGrid();
-   showGrid();
    drawingClick();
    drawingDrag();
  }
@@ -35,25 +34,6 @@
      }
    }
  }
-
- // SHOW GRID ON SLIDER HOVER
- showGrid() 
-
- function showGrid() {
-   let slider = document.querySelector('#myRange');
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => {
-    slider.addEventListener('mouseover', () => {
-      item.classList.remove('gridOff');
-      item.classList.add('gridOn');
-    });
-     slider.addEventListener('mouseleave', () => {
-      item.classList.remove('gridOn');
-      item.classList.add('gridOff');
-     });
-   });
- }
-
 
  // BUTTONS
  let selectedColor = 'red';
@@ -139,12 +119,9 @@
        if (selectedColor == 'rainbow') {
          item.classList.remove(selectedColor);
          item.style.backgroundColor = rgb();
-         item.style.outline = '1px solid';
-         item.style.outlineColor = item.style.backgroundColor;
        } else {
          item.classList.add(selectedColor);
          item.style.backgroundColor = "";
-         item.style.outlineColor = "";
        }
      });
    });
@@ -159,12 +136,9 @@
          if (selectedColor == 'rainbow') {
            item.classList.remove(selectedColor);
            item.style.backgroundColor = rgb();
-           item.style.outline = '1px solid';
-           item.style.outlineColor = item.style.backgroundColor;
          } else {
            item.classList.add(selectedColor);
            item.style.backgroundColor = "";
-           item.style.outlineColor = "";
          }
        }
      });

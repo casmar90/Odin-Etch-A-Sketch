@@ -28,10 +28,8 @@ body {
 
 #grid {
     display: flex;
-    aspect-ratio: 1 / 1;   /* prevents things below grid from glitching/moving up and down a little */
-
-background-color: white; /* prevents grid from glitching/moving on the right side */
-
+    aspect-ratio: 1 / 1; /* prevents things below grid from glitching/moving up and down a little */
+    background-color: white; /* prevents grid from glitching/moving on the right side */
 }
 
 .column {
@@ -40,37 +38,35 @@ background-color: white; /* prevents grid from glitching/moving on the right sid
     flex: 1;
 }
 
-
 .pixel {
     display: flex;
     flex-direction: row;
     flex: 1;
     box-sizing: border-box;
-
     padding-top: 100%;
     width: 100%;
     height: 100%;
     background-color: white;
-    
-    outline: 0px solid  !important;
+    outline: 1px solid rgba(224, 224, 224, 0);
+    animation-name: gridFadeOut;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
 }
 
-.gridOn{
-    outline: 1px solid rgb(224, 224, 224) !important;
-    /* background-color:violet !important; */
-}  
-
-
- .gridOff{
-    outline: 0px solid  !important; 
-    /* background-color:greenyellow !important;  */
+@keyframes gridFadeOut {
+    0% {
+        outline: 1px solid rgba(224, 224, 224, 1);
+    }
+    100% {
+        outline: 0px solid rgba(224, 224, 224, 0);
+    }
 }
 
-/* .slider::-webkit-slider-thumb:hover .pixel{
-    outline: 1px solid rgb(224, 224, 224) !important;
-    background-color:red;
-} */
-
+.pixel:hover {
+     outline: 1px solid black !important; 
+     outline-offset: -1px;
+    z-index: 1;
+}
 
 #buttons {
     margin: 32px auto 32px auto;
@@ -108,28 +104,23 @@ button:hover {
 
 .red {
     background-color: red;
-    outline: 1px solid red;
 }
 
 .green {
     background-color: green;
-    outline: 1px solid green;
 }
 
 .blue {
     background-color: blue;
-    outline: 1px solid blue;
 }
 
 .yellow {
     color: black;
     background-color: yellow;
-    outline: 1px solid yellow;
 }
 
 .black {
     background-color: black;
-    outline: 1px solid black;
 }
 
 .active {
@@ -141,8 +132,6 @@ button:hover {
 button {
     outline: 0px !important;
 }
-
-
 
 .rainbow {
     background: linear-gradient(45deg,
@@ -181,12 +170,11 @@ button {
     transition: transform 0.2s ease-in-out;
 }
 
-/* .slider::-webkit-slider-thumb:hover{
+.slider::-webkit-slider-thumb:hover {
     transform: scale(1.1);
+}
 
-} */
-
- .slider::-moz-range-thumb{
+.slider::-moz-range-thumb {
     width: 32px;
     height: 32px;
     background: black;
@@ -194,11 +182,11 @@ button {
     border-radius: 0px;
     border: none;
     transition: transform 0.2s ease-in-out;
- }
+}
 
- .slider::-moz-range-thumb:hover{
+.slider::-moz-range-thumb:hover {
     transform: scale(1.1);
- }
+}
 
 .size {
     margin: 0 0 64px 0;
