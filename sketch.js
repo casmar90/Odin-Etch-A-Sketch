@@ -46,11 +46,11 @@
  const eraser = document.querySelector('.eraser');
  const rainbow = document.querySelector('.rainbow');
 
- // BACK TO ORIGINAL SIZE AFTER MOUSEDOWN
+ // BACK TO ORIGINAL SIZE AFTER CLICK
  const buttons = document.querySelectorAll('button');
 
  buttons.forEach((button) => {
-   button.addEventListener('mousedown', () => {
+   button.addEventListener('click', () => {
      button.classList.add('buttonPushed');
      button.addEventListener('mouseleave', function () {
        button.classList.remove('buttonPushed');
@@ -59,7 +59,7 @@
  });
 
  // MARK ACTIVE BUTTON
- container.addEventListener('mousedown', handleClick, false);
+ container.addEventListener('click', handleClick, false);
 
  function handleClick(e) {
    const {
