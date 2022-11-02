@@ -9,6 +9,7 @@
    output.innerHTML = this.value + ' x ' + this.value;
    gridSize = this.value;
    createGrid();
+   showGrid();
    drawingClick();
    drawingDrag();
  }
@@ -35,6 +36,25 @@
    }
  }
 
+ // SHOW GRID ON SLIDER HOVER
+ showGrid() 
+
+ function showGrid() {
+   let slider = document.querySelector('#myRange');
+   let items = document.querySelectorAll('.pixel');
+   items.forEach(item => {
+    slider.addEventListener('mouseover', () => {
+      item.classList.remove('gridOff');
+      item.classList.add('gridOn');
+    });
+     slider.addEventListener('mouseleave', () => {
+      item.classList.remove('gridOn');
+      item.classList.add('gridOff');
+     });
+   });
+ }
+
+
  // BUTTONS
  let selectedColor = 'red';
 
@@ -46,7 +66,7 @@
  const eraser = document.querySelector('.eraser');
  const rainbow = document.querySelector('.rainbow');
 
- // BACK TO ORIGINAL SIZE AFTER CLICK
+ // BACK TO ORIGINAL SIZE AFTER MOUSEDOWN
  const buttons = document.querySelectorAll('button');
 
  buttons.forEach((button) => {
@@ -150,7 +170,7 @@
      });
    });
  }
- 
+
  // CLEAR GRID
  const clear = document.querySelector('.clear');
  let items = document.querySelectorAll('.pixel');

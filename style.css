@@ -28,7 +28,10 @@ body {
 
 #grid {
     display: flex;
-    aspect-ratio: 1 / 1; // prevents things below grid from glitching/moving up and down a little
+    aspect-ratio: 1 / 1;   /* prevents things below grid from glitching/moving up and down a little */
+
+background-color: white; /* prevents grid from glitching/moving on the right side */
+
 }
 
 .column {
@@ -37,14 +40,37 @@ body {
     flex: 1;
 }
 
+
 .pixel {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    box-sizing: border-box;
+
     padding-top: 100%;
     width: 100%;
     height: 100%;
     background-color: white;
-    outline: 1px solid rgb(224, 224, 224);
-    ;
+    
+    outline: 0px solid  !important;
 }
+
+.gridOn{
+    outline: 1px solid rgb(224, 224, 224) !important;
+    /* background-color:violet !important; */
+}  
+
+
+ .gridOff{
+    outline: 0px solid  !important; 
+    /* background-color:greenyellow !important;  */
+}
+
+/* .slider::-webkit-slider-thumb:hover .pixel{
+    outline: 1px solid rgb(224, 224, 224) !important;
+    background-color:red;
+} */
+
 
 #buttons {
     margin: 32px auto 32px auto;
@@ -112,6 +138,12 @@ button:hover {
     z-index: 1;
 }
 
+button {
+    outline: 0px !important;
+}
+
+
+
 .rainbow {
     background: linear-gradient(45deg,
             #FE0000 16.66%,
@@ -149,9 +181,10 @@ button:hover {
     transition: transform 0.2s ease-in-out;
 }
 
-.slider::-webkit-slider-thumb:hover{
+/* .slider::-webkit-slider-thumb:hover{
     transform: scale(1.1);
-}
+
+} */
 
  .slider::-moz-range-thumb{
     width: 32px;
@@ -188,7 +221,7 @@ button:hover {
 .fa-github {
     color: black;
     opacity: 75%;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     margin-left: 4px;
 }
 
