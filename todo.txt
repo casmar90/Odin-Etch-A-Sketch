@@ -1,2 +1,0 @@
-change layout on desktop to horizontal ???
-code refactoring
