@@ -54,13 +54,6 @@ body {
 }
 
 @keyframes gridFadeOut {
-    /* 0% {
-        outline: 1px solid rgba(224, 224, 224, 1);
-    }
-    100% {
-        outline: 0px solid rgba(224, 224, 224, 0);
-    } */
-
     0% {
         outline: 1px solid rgba(128, 128, 128, 1);
     }
