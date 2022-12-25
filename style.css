@@ -28,8 +28,10 @@ body {
 
 #grid {
     display: flex;
-    aspect-ratio: 1 / 1; /* prevents things below grid from glitching/moving up and down a little */
-    background-color: white; /* prevents grid from glitching/moving on the right side */
+    aspect-ratio: 1 / 1;
+    /* prevents things below grid from glitching/moving up and down a little */
+    background-color: white;
+    /* prevents grid from glitching/moving on the right side */
 }
 
 .column {
@@ -57,14 +59,15 @@ body {
     0% {
         outline: 1px solid rgba(128, 128, 128, 1);
     }
+
     100% {
         outline: 0px solid rgba(128, 128, 128, 0);
     }
 }
 
 .pixel:hover {
-     outline: 1px solid black !important; 
-     outline-offset: -1px;
+    outline: 1px solid black !important;
+    outline-offset: -1px;
     z-index: 1;
 }
 
@@ -90,6 +93,8 @@ button {
     width: 100%;
     transition: transform 0.2s ease-in-out;
     aspect-ratio: 1 / 1;
+    margin: 0px;
+    /* iOS fix */
 }
 
 button:hover {
