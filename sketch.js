@@ -1,156 +1,153 @@
- let gridSize = 16;
+/* eslint-disable eol-last */
 
- // GRID SIZE SLIDER
- let slider = document.getElementById("myRange");
- let output = document.getElementById("value");
- output.innerHTML = slider.value + ' x ' + slider.value;
+// VALUES
+let gridSize = 16;
+let selectedColor = 'red';
 
- slider.oninput = function () {
-   output.innerHTML = this.value + ' x ' + this.value;
-   gridSize = this.value;
-   createGrid();
-   drawingClick();
-   drawingDrag();
- }
+const grid = document.querySelector('#grid');
+const buttons = document.querySelectorAll('button');
 
- // GRID SETUP
- createGrid();
+// SELECTORS
+// const red = document.querySelector('.red');
+// const green = document.querySelector('.green');
+// const blue = document.querySelector('.blue');
+// const yellow = document.querySelector('.yellow');
+// const black = document.querySelector('.black');
+// const eraser = document.querySelector('.eraser');
+// const rainbow = document.querySelector('.rainbow');
+const clear = document.querySelector('.clear');
 
- function createGrid() {
-   const resetGrid = document.getElementById('grid');
-   resetGrid.innerHTML = '';
+const slider = document.querySelector('#myRange');
+const gridSizeInfo = document.querySelector('#value');
 
-   for (let i = 0; i < gridSize; i++) {
-     let column = document.createElement('div');
-     column.classList.add('column');
-     column.id = "column-" + (i + 1);
-     document.getElementById('grid').appendChild(column);
-   }
-   for (let i = 0; i < gridSize; i++) {
-     for (let i = 0; i < gridSize; i++) {
-       let pixel = document.createElement('div');
-       pixel.classList.add('pixel');
-       document.getElementById('column-' + (i + 1)).appendChild(pixel);
-     }
-   }
- }
+gridSizeInfo.textContent = `${slider.value} x ${slider.value}`;
 
- // BUTTONS
- let selectedColor = 'red';
+// FUNCTIONS
+function createGrid() {
+  grid.textContent = ''; // reset grid
+  for (let col = 0; col < gridSize; col += 1) {
+    const column = document.createElement('div');
+    column.classList.add('column');
+    column.id = `column-${col + 1}`;
+    document.querySelector('#grid').appendChild(column);
+  }
+  for (let i = 0; i < gridSize; i += 1) {
+    for (let row = 0; row < gridSize; row += 1) {
+      const createPixel = document.createElement('div');
+      createPixel.classList.add('pixel');
+      document.querySelector(`#column-${row + 1}`).appendChild(createPixel);
+    }
+  }
+}
 
- const red = document.querySelector('.red');
- const green = document.querySelector('.green');
- const blue = document.querySelector('.blue');
- const yellow = document.querySelector('.yellow');
- const black = document.querySelector('.black');
- const eraser = document.querySelector('.eraser');
- const rainbow = document.querySelector('.rainbow');
+// --------------------------------------------------------
 
- // BACK TO ORIGINAL SIZE AFTER CLICK
- const buttons = document.querySelectorAll('button');
+// SELECT COLOR
+function selectColor(e) {
+  buttons.forEach((button) => {
+    if (e.target.classList.contains('btn')) {
+      button.classList.remove('active');
+      e.target.classList.add('active');
+    }
+  });
+}
 
- buttons.forEach((button) => {
-   button.addEventListener('click', () => {
-     button.classList.add('buttonPushed');
-     button.addEventListener('mouseleave', function () {
-       button.classList.remove('buttonPushed');
-     });
-   });
- });
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    if (e.target.textContent.toLowerCase() !== 'clear') {
+      selectedColor = e.target.textContent.toLowerCase();
+    }
+  });
+});
 
- // MARK ACTIVE BUTTON
- container.addEventListener('click', handleClick, false);
+// RANDOM COLOR GENERATOR
+function rgb() {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  return `rgb(${r},${g},${b})`;
+}
 
- function handleClick(e) {
-   const {
-     target
-   } = e;
-   if (target.classList.contains('btn')) {
-     buttons.forEach(button => button.classList.remove('active'));
-     target.classList.add('active');
-   }
- }
+// CHECK IF MOUSE BUTTON IS DOWN
+let down = false;
 
- // SELECT DRAWING COLOR
- red.onclick = () => selectedColor = ('red');
- green.onclick = () => selectedColor = ('green');
- blue.onclick = () => selectedColor = ('blue');
- yellow.onclick = () => selectedColor = ('yellow');
- black.onclick = () => selectedColor = ('black');
- eraser.onclick = () => selectedColor = ('eraser');
- rainbow.onclick = () => selectedColor = ('rainbow');
+grid.addEventListener('mousedown', (e) => {
+  down = true;
+  e.preventDefault(); // prevents "block cursor" from appearing
+});
 
- // RANDOM COLOR GENERATOR
- let r = '',
-   g = '',
-   b = '';
+document.addEventListener('mouseup', () => {
+  down = false;
+});
 
- function rgb() {
-   r = Math.floor(Math.random() * 255);
-   g = Math.floor(Math.random() * 255);
-   b = Math.floor(Math.random() * 255);
-   return "rgb(" + r + "," + g + "," + b + ")";
- }
+function drawingClick() {
+  const items = document.querySelectorAll('.pixel');
+  items.forEach((item) => {
+    item.addEventListener('mousedown', () => {
+      const pixel = item;
+      pixel.className = 'pixel';
+      if (selectedColor === 'rainbow') {
+        item.classList.remove(selectedColor);
+        pixel.style.backgroundColor = rgb();
+      } else {
+        item.classList.add(selectedColor);
+      }
+    });
+  });
+}
 
- // CHECK IF MOUSE BUTTON IS DOWN
- let down = false;
- let grid = document.querySelector('#grid');
+function drawingDrag() {
+  const items = document.querySelectorAll('.pixel');
+  items.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      if (down) {
+        const pixel = item;
+        pixel.className = 'pixel';
+        if (selectedColor === 'rainbow') {
+          item.classList.remove(selectedColor);
+          pixel.style.backgroundColor = rgb();
+        } else {
+          item.classList.add(selectedColor);
+        }
+      }
+    });
+  });
+}
 
- grid.addEventListener('mousedown', (e) => {
-   down = true;
-   console.log(down);
-   e.preventDefault(); // prevents "block cursor" from appearing
- });
+// CLEAR GRID
+clear.addEventListener('click', () => {
+  const items = document.querySelectorAll('.pixel');
+  items.forEach((item) => {
+    const pixel = item;
+    pixel.className = 'pixel';
+    pixel.style.backgroundColor = '';
+  });
+});
 
- document.addEventListener('mouseup', () => {
-   down = false;
-   console.log(down);
- });
+// GRID SETUP
+createGrid();
+slider.oninput = function setGridSize() {
+  gridSizeInfo.textContent = `${this.value} x ${this.value}`;
+  gridSize = this.value;
+  createGrid();
+  drawingClick();
+  drawingDrag();
+};
 
- // DRAWING
- drawingClick();
- drawingDrag();
+// MARK ACTIVE BUTTON
 
- function drawingClick() {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => {
-     item.addEventListener('mousedown', () => {
-       item.className = 'pixel';
-       if (selectedColor == 'rainbow') {
-         item.classList.remove(selectedColor);
-         item.style.backgroundColor = rgb();
-       } else {
-         item.classList.add(selectedColor);
-         item.style.backgroundColor = "";
-       }
-     });
-   });
- }
+document.addEventListener('click', selectColor, false);
 
- function drawingDrag() {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => {
-     item.addEventListener('mouseover', () => {
-       if (down) {
-         item.className = 'pixel';
-         if (selectedColor == 'rainbow') {
-           item.classList.remove(selectedColor);
-           item.style.backgroundColor = rgb();
-         } else {
-           item.classList.add(selectedColor);
-           item.style.backgroundColor = "";
-         }
-       }
-     });
-   });
- }
+// DRAWING
+drawingClick();
+drawingDrag();
 
- // CLEAR GRID
- const clear = document.querySelector('.clear');
- let items = document.querySelectorAll('.pixel');
- clear.onclick = () => {
-   let items = document.querySelectorAll('.pixel');
-   items.forEach(item => item.className = 'pixel');
-   items.forEach(item => item.style.backgroundColor = "");
-   items.forEach(item => item.style.outlineColor = "");
- }
+// BACK TO ORIGINAL SIZE AFTER CLICK
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    button.classList.add('buttonPushed');
+    button.addEventListener('mouseleave', () => {
+      button.classList.remove('buttonPushed');
+    });
+  });
+});
