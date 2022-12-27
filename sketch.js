@@ -1,29 +1,18 @@
-/* eslint-disable eol-last */
-
 // VALUES
 let gridSize = 16;
 let selectedColor = 'red';
 
+// SELECTORS
 const grid = document.querySelector('#grid');
 const buttons = document.querySelectorAll('button');
-
-// SELECTORS
-// const red = document.querySelector('.red');
-// const green = document.querySelector('.green');
-// const blue = document.querySelector('.blue');
-// const yellow = document.querySelector('.yellow');
-// const black = document.querySelector('.black');
-// const eraser = document.querySelector('.eraser');
-// const rainbow = document.querySelector('.rainbow');
+const btns = document.querySelectorAll('.btn');
 const clear = document.querySelector('.clear');
-
 const slider = document.querySelector('#myRange');
-const gridSizeInfo = document.querySelector('#value');
+const gridInfo = document.querySelector('#value');
 
-gridSizeInfo.textContent = `${slider.value} x ${slider.value}`;
-
-// FUNCTIONS
+// CREATE GRID
 function createGrid() {
+  gridInfo.textContent = `${slider.value} x ${slider.value}`; // grid size info
   grid.textContent = ''; // reset grid
   for (let col = 0; col < gridSize; col += 1) {
     const column = document.createElement('div');
@@ -40,25 +29,64 @@ function createGrid() {
   }
 }
 
-// --------------------------------------------------------
+// DRAWING
+function updatePixel(pixel) {
+  pixel.className = 'pixel';
+  if (selectedColor === 'rainbow') {
+    pixel.style.backgroundColor = rgb();
+  } else {
+    pixel.classList.add(selectedColor);
+    pixel.removeAttribute('style');
+  }
+}
 
-// SELECT COLOR
-function selectColor(e) {
-  buttons.forEach((button) => {
-    if (e.target.classList.contains('btn')) {
-      button.classList.remove('active');
-      e.target.classList.add('active');
-    }
+function drawing() {
+  let down = false;
+
+  grid.addEventListener('mousedown', (e) => {
+    down = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener('mouseup', () => {
+    down = false;
+  });
+
+  const items = document.querySelectorAll('.pixel');
+  items.forEach((item) => {
+    item.addEventListener('mousedown', () => {
+      updatePixel(item);
+    });
+    item.addEventListener('mouseover', () => {
+      if (down) {
+        updatePixel(item);
+      }
+    });
   });
 }
 
-buttons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    if (e.target.textContent.toLowerCase() !== 'clear') {
+// PICK COLOR, MARK ACTIVE BUTTON, BUTTON PUSH ANIMATION
+function pickColor() {
+  btns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
       selectedColor = e.target.textContent.toLowerCase();
-    }
+    });
+    btn.addEventListener('click', (e) => {
+      btns.forEach((btn) => {
+        btn.classList.remove('active');
+        e.target.classList.add('active');
+      });
+    });
   });
-});
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      button.classList.add('buttonPushed');
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('buttonPushed');
+      });
+    });
+  });
+}
 
 // RANDOM COLOR GENERATOR
 function rgb() {
@@ -66,52 +94,6 @@ function rgb() {
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
   return `rgb(${r},${g},${b})`;
-}
-
-// CHECK IF MOUSE BUTTON IS DOWN
-let down = false;
-
-grid.addEventListener('mousedown', (e) => {
-  down = true;
-  e.preventDefault(); // prevents "block cursor" from appearing
-});
-
-document.addEventListener('mouseup', () => {
-  down = false;
-});
-
-function drawingClick() {
-  const items = document.querySelectorAll('.pixel');
-  items.forEach((item) => {
-    item.addEventListener('mousedown', () => {
-      const pixel = item;
-      pixel.className = 'pixel';
-      if (selectedColor === 'rainbow') {
-        item.classList.remove(selectedColor);
-        pixel.style.backgroundColor = rgb();
-      } else {
-        item.classList.add(selectedColor);
-      }
-    });
-  });
-}
-
-function drawingDrag() {
-  const items = document.querySelectorAll('.pixel');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      if (down) {
-        const pixel = item;
-        pixel.className = 'pixel';
-        if (selectedColor === 'rainbow') {
-          item.classList.remove(selectedColor);
-          pixel.style.backgroundColor = rgb();
-        } else {
-          item.classList.add(selectedColor);
-        }
-      }
-    });
-  });
 }
 
 // CLEAR GRID
@@ -124,30 +106,16 @@ clear.addEventListener('click', () => {
   });
 });
 
-// GRID SETUP
-createGrid();
+// CHANGE GRID SIZE
 slider.oninput = function setGridSize() {
-  gridSizeInfo.textContent = `${this.value} x ${this.value}`;
+  gridInfo.textContent = `${this.value} x ${this.value}`;
   gridSize = this.value;
   createGrid();
-  drawingClick();
-  drawingDrag();
+  pickColor();
+  drawing();
 };
 
-// MARK ACTIVE BUTTON
-
-document.addEventListener('click', selectColor, false);
-
-// DRAWING
-drawingClick();
-drawingDrag();
-
-// BACK TO ORIGINAL SIZE AFTER CLICK
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    button.classList.add('buttonPushed');
-    button.addEventListener('mouseleave', () => {
-      button.classList.remove('buttonPushed');
-    });
-  });
-});
+// RUN
+createGrid();
+pickColor();
+drawing();
