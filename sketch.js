@@ -29,8 +29,39 @@ function createGrid() {
   }
 }
 
+// PICK COLOR, MARK ACTIVE BUTTON, BUTTON PUSH ANIMATION
+function pickColor() {
+  btns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      selectedColor = e.target.textContent.toLowerCase();
+      btns.forEach((btnStatus) => {
+        btnStatus.classList.remove('active');
+        e.target.classList.add('active');
+      });
+    });
+  });
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      button.classList.add('buttonPushed');
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('buttonPushed');
+      });
+    });
+  });
+}
+
+// RANDOM COLOR GENERATOR
+function rgb() {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  return `rgb(${r},${g},${b})`;
+}
+
 // DRAWING
-function updatePixel(pixel) {
+function updatePixel(item) {
+  const pixel = item;
   pixel.className = 'pixel';
   if (selectedColor === 'rainbow') {
     pixel.style.backgroundColor = rgb();
@@ -65,44 +96,13 @@ function drawing() {
   });
 }
 
-// PICK COLOR, MARK ACTIVE BUTTON, BUTTON PUSH ANIMATION
-function pickColor() {
-  btns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      selectedColor = e.target.textContent.toLowerCase();
-    });
-    btn.addEventListener('click', (e) => {
-      btns.forEach((btn) => {
-        btn.classList.remove('active');
-        e.target.classList.add('active');
-      });
-    });
-  });
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      button.classList.add('buttonPushed');
-      button.addEventListener('mouseleave', () => {
-        button.classList.remove('buttonPushed');
-      });
-    });
-  });
-}
-
-// RANDOM COLOR GENERATOR
-function rgb() {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
-  return `rgb(${r},${g},${b})`;
-}
-
 // CLEAR GRID
 clear.addEventListener('click', () => {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
     const pixel = item;
     pixel.className = 'pixel';
-    pixel.style.backgroundColor = '';
+    pixel.removeAttribute('style');
   });
 });
 
