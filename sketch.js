@@ -1,6 +1,7 @@
 // VALUES
 let gridSize = 16;
 let selectedColor = 'red';
+let gridOn = false;
 
 // SELECTORS
 const grid = document.querySelector('#grid');
@@ -25,8 +26,7 @@ function createGrid() {
   for (let i = 0; i < gridSize; i += 1) {
     for (let row = 0; row < gridSize; row += 1) {
       const createPixel = document.createElement('div');
-      createPixel.classList.add('pixel');
-      // createPixel.classList.add('pixel', 'toggle'); // keep grid after grid size change
+      gridOn ? createPixel.classList.add('pixel', 'toggle') : createPixel.classList.add('pixel');
       document.querySelector(`#column-${row + 1}`).appendChild(createPixel);
     }
   }
@@ -65,11 +65,11 @@ function rgb() {
 // DRAWING
 function updatePixel(item) {
   const pixel = item;
+  pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
+
   if (selectedColor === 'rainbow') {
-    pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
     pixel.style.backgroundColor = rgb();
   } else {
-    pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
     pixel.classList.add(selectedColor);
     pixel.removeAttribute('style');
   }
@@ -103,23 +103,21 @@ function drawing() {
 // TOGGLE GRID
 toggle.addEventListener('click', () => {
   const items = document.querySelectorAll('.pixel');
-
   items.forEach((item) => {
     item.classList.toggle('toggle');
+    item.classList.contains('toggle') ? gridOn = true : gridOn = false;
   });
 });
 
 function clearGrid() {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
-    const pixel = item;
-
-    if (pixel.classList.contains('toggle')) {
-      pixel.className = ('pixel toggle');
-      pixel.removeAttribute('style');
+    if (item.classList.contains('toggle')) {
+      item.className = ('pixel toggle'),
+        item.removeAttribute('style')
     } else {
-      pixel.className = ('pixel');
-      pixel.removeAttribute('style');
+      item.className = ('pixel');
+      item.removeAttribute('style');
     }
   });
 }
