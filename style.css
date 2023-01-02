@@ -239,15 +239,6 @@ button.toggle {
     flex-shrink: 0;
 }
 
-.mobile {
-    display: flex !important;
-    ;
-}
-
-.desktop {
-    display: none !important;
-}
-
 .fa-github {
     color: black;
     opacity: 75%;
@@ -271,10 +262,6 @@ button.toggle {
         /* background-color: aquamarine; */
     }
 
-    #title {
-        white-space: nowrap;
-    }
-
     #buttons {
         flex-basis: 100%;
         order: 1;
@@ -282,15 +269,16 @@ button.toggle {
         flex-direction: row;
         min-height: 256px;
         height: calc(100vh - 139.2px);
+        max-height: 512px;
+
+        /* max-height: 568px;
+        gap: 8px; */
+
         flex-wrap: wrap-reverse;
         margin: auto 16px auto 0px;
         justify-content: center;
         align-content: flex-start;
         writing-mode: vertical-lr;
-        /* gap: 8px; */
-
-        padding-top: 81px;
-        padding-bottom: 52px;
     }
 
     button {
@@ -305,10 +293,17 @@ button.toggle {
         flex-basis: 100%;
         flex-grow: 1;
         flex-shrink: 0;
+        flex-shrink: 0.3333333333333;
+
+        flex-shrink: 0.2;
+
+        /* flex-shrink: 1; */
+
         min-width: 256px;
         max-width: calc(100vh - 139.2px);
 
-        flex-direction: column;
+        /* width: 100%;
+        max-width: 768px; */
     }
 
     #grid {
@@ -334,9 +329,6 @@ button.toggle {
         max-height: 512px;
         width: 64px;
         margin-left: -112px;
-
-        padding-top: 81px;
-        padding-bottom: 52px;
     }
 
     .slider {
@@ -364,11 +356,5 @@ button.toggle {
         margin-left: -112px;
     }
 
-    .mobile {
-        display: none !important;
-    }
-    .desktop {
-        display: flex !important;
-    }
 
 }

@@ -1,4 +1,6 @@
 Fluid, Responsive breakpoints with CSS3 transitions
+https://css-tricks.com/animated-media-queries/
+https://codepen.io/MICHagency/pen/GRpvJXb
 
 nie równa siatka na androidzie
 
