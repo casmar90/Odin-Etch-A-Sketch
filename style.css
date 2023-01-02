@@ -239,6 +239,15 @@ button.toggle {
     flex-shrink: 0;
 }
 
+.mobile {
+    display: flex !important;
+    ;
+}
+
+.desktop {
+    display: none !important;
+}
+
 .fa-github {
     color: black;
     opacity: 75%;
@@ -261,7 +270,11 @@ button.toggle {
         align-items: center;
         /* background-color: aquamarine; */
     }
-    
+
+    #title {
+        white-space: nowrap;
+    }
+
     #buttons {
         flex-basis: 100%;
         order: 1;
@@ -275,6 +288,9 @@ button.toggle {
         align-content: flex-start;
         writing-mode: vertical-lr;
         /* gap: 8px; */
+
+        padding-top: 81px;
+        padding-bottom: 52px;
     }
 
     button {
@@ -291,6 +307,8 @@ button.toggle {
         flex-shrink: 0;
         min-width: 256px;
         max-width: calc(100vh - 139.2px);
+
+        flex-direction: column;
     }
 
     #grid {
@@ -316,6 +334,9 @@ button.toggle {
         max-height: 512px;
         width: 64px;
         margin-left: -112px;
+
+        padding-top: 81px;
+        padding-bottom: 52px;
     }
 
     .slider {
@@ -343,5 +364,11 @@ button.toggle {
         margin-left: -112px;
     }
 
+    .mobile {
+        display: none !important;
+    }
+    .desktop {
+        display: flex !important;
+    }
 
 }

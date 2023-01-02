@@ -1,8 +1,8 @@
-
 Fluid, Responsive breakpoints with CSS3 transitions
 
 nie równa siatka na androidzie
 
+test na ipadzie
 
 ------------
 
