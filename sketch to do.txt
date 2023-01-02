@@ -1,10 +1,5 @@
-zmiana układu UI?
-
--keep grid after grid size change
 
 Fluid, Responsive breakpoints with CSS3 transitions
-
-fix glitch on slider knob hover
 
 nie równa siatka na androidzie
 
