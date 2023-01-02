@@ -16,6 +16,9 @@ body {
     font-size: 16px;
     touch-action: manipulation;
     margin: 0px;
+
+    /* background-color: aquamarine; */
+    /* background-image: linear-gradient(90deg, rgba(224, 224, 224, 1) 50%, rgba(128, 255, 209, 1) 100%); */
 }
 
 #container {
@@ -144,8 +147,13 @@ button:hover {
     background-color: black;
 }
 
+.black.active {
+    outline: 3px solid white !important;
+}
+
 .active {
-    outline: 2px solid black !important;
+    outline: 3px solid black !important;
+    outline-offset: -2px;
     font-weight: 700;
     z-index: 1;
 }
@@ -173,6 +181,7 @@ button.toggle {
 }
 
 .x {
+    background-color: silver;
     color: black;
 }
 
@@ -190,8 +199,8 @@ button.toggle {
     width: 100%;
     max-width: 512px;
     height: 32px;
-    background: silver;
-    opacity: 0.66;
+    background: hsl(0, 0%, 80%);
+    margin: 0;
 }
 
 .slider::-webkit-slider-thumb {
@@ -199,7 +208,7 @@ button.toggle {
     appearance: none;
     width: 32px;
     height: 32px;
-    background: black;
+    background: hsl(0, 0%, 30%);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
@@ -211,7 +220,7 @@ button.toggle {
 .slider::-moz-range-thumb {
     width: 32px;
     height: 32px;
-    background: black;
+    background: hsl(0, 0%, 30%);
     cursor: pointer;
     border-radius: 0px;
     border: none;
@@ -259,7 +268,6 @@ button.toggle {
         display: flex;
         flex-direction: row;
         align-items: center;
-        /* background-color: aquamarine; */
     }
 
     #buttons {
@@ -270,10 +278,6 @@ button.toggle {
         min-height: 256px;
         height: calc(100vh - 139.2px);
         max-height: 512px;
-
-        /* max-height: 568px;
-        gap: 8px; */
-
         flex-wrap: wrap-reverse;
         margin: auto 16px auto 0px;
         justify-content: center;
@@ -292,18 +296,9 @@ button.toggle {
         order: 2;
         flex-basis: 100%;
         flex-grow: 1;
-        flex-shrink: 0;
-        flex-shrink: 0.3333333333333;
-
         flex-shrink: 0.2;
-
-        /* flex-shrink: 1; */
-
         min-width: 256px;
         max-width: calc(100vh - 139.2px);
-
-        /* width: 100%;
-        max-width: 768px; */
     }
 
     #grid {
@@ -321,31 +316,21 @@ button.toggle {
     }
 
     #slidecontainer {
-        display: flex;
         flex-direction: row;
         align-items: center;
         min-height: 256px;
         height: calc(100vh - 139.2px);
         max-height: 512px;
         width: 64px;
-        margin-left: -112px;
+        margin-left: -241px;
     }
 
     .slider {
-        -webkit-appearance: none;
-        appearance: none;
         transform: rotate(-90deg);
-        min-width: 256px;
-        max-width: 512px;
-        width: 100%;
-        height: 32px;
-        background: silver;
-        opacity: 0.66;
-        margin: 0;
+        min-width: 512px;
     }
 
     .size {
-        margin: 0;
         padding: 0;
         min-height: 256px;
         display: flex;
@@ -353,8 +338,20 @@ button.toggle {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         min-width: 32px;
-        margin-left: -112px;
+        margin-left: -241px;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-height: 651.2px) {
+    #slidecontainer {
+        margin-left: -113px;
     }
 
+    .slider {
+        min-width: 256px;
+    }
 
+    .size {
+        margin-left: -113px;
+    }
 }
