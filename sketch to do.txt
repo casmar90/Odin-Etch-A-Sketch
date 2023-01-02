@@ -1,3 +1,14 @@
+zmiana układu UI?
+
+-keep grid after grid size change
+
+Fluid, Responsive breakpoints with CSS3 transitions
+
+
+
+
+------------
+
 dodać kolory / spray:
 https://thegamescabin.com/d2r-gem-guide-how-to-obtain-each/
 
@@ -21,7 +32,4 @@ earth / ground brązowy
 rainbow zamienić na random?
 
 8 matrix lub unicorn lub jeszcze coś innego ???
-
-
-zmiana układu UI?
 

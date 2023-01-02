@@ -6,6 +6,7 @@ let selectedColor = 'red';
 const grid = document.querySelector('#grid');
 const buttons = document.querySelectorAll('button');
 const btns = document.querySelectorAll('.btn');
+const toggle = document.querySelector('.toggle');
 const clear = document.querySelector('.clear');
 const slider = document.querySelector('#myRange');
 const gridInfo = document.querySelector('#value');
@@ -14,6 +15,7 @@ const gridInfo = document.querySelector('#value');
 function createGrid() {
   gridInfo.textContent = `${slider.value} x ${slider.value}`; // grid size info
   grid.textContent = ''; // reset grid
+
   for (let col = 0; col < gridSize; col += 1) {
     const column = document.createElement('div');
     column.classList.add('column');
@@ -24,6 +26,7 @@ function createGrid() {
     for (let row = 0; row < gridSize; row += 1) {
       const createPixel = document.createElement('div');
       createPixel.classList.add('pixel');
+      // createPixel.classList.add('pixel', 'toggle'); // keep grid after grid size change
       document.querySelector(`#column-${row + 1}`).appendChild(createPixel);
     }
   }
@@ -62,10 +65,11 @@ function rgb() {
 // DRAWING
 function updatePixel(item) {
   const pixel = item;
-  pixel.className = 'pixel';
   if (selectedColor === 'rainbow') {
+    pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
     pixel.style.backgroundColor = rgb();
   } else {
+    pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
     pixel.classList.add(selectedColor);
     pixel.removeAttribute('style');
   }
@@ -96,26 +100,53 @@ function drawing() {
   });
 }
 
-// CLEAR GRID
-clear.addEventListener('click', () => {
+// TOGGLE GRID
+toggle.addEventListener('click', () => {
+  const items = document.querySelectorAll('.pixel');
+
+  items.forEach((item) => {
+    item.classList.toggle('toggle');
+  });
+});
+
+function clearGrid() {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
     const pixel = item;
-    pixel.className = 'pixel';
-    pixel.removeAttribute('style');
+
+    if (pixel.classList.contains('toggle')) {
+      pixel.className = ('pixel toggle');
+      pixel.removeAttribute('style');
+    } else {
+      pixel.className = ('pixel');
+      pixel.removeAttribute('style');
+    }
   });
-});
+}
+
+// CLEAR GRID
+clear.addEventListener('click', clearGrid);
+
+// RUN
+function run() {
+  createGrid();
+  pickColor();
+  drawing();
+}
 
 // CHANGE GRID SIZE
 slider.oninput = function setGridSize() {
   gridInfo.textContent = `${this.value} x ${this.value}`;
   gridSize = this.value;
-  createGrid();
-  pickColor();
-  drawing();
 };
 
-// RUN
-createGrid();
-pickColor();
-drawing();
+slider.addEventListener('click', run);
+slider.addEventListener('touchend', run);
+slider.addEventListener('keydown', (e) => {
+  if (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39) {
+    run();
+  }
+});
+
+// START PROGRAM
+run();

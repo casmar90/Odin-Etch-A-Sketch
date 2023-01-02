@@ -21,7 +21,9 @@
             <div id="title">Etch-A-Sketch</div>
         </header>
         <main id="main">
-            <div id="grid"></div>
+            <div id="grid-container">
+                <div id="grid"></div>
+            </div>
             <div id="buttons">
                 <button class="btn red active">Red</button>
                 <button class="btn green">Green</button>
@@ -29,24 +31,26 @@
                 <button class="btn yellow">Yellow</button>
                 <button class="btn black">Black</button>
                 <button class="btn rainbow">Rainbow</button>
+                <!-- <button class="btn x">x</button>
                 <button class="btn x">x</button>
                 <button class="btn x">x</button>
                 <button class="btn x">x</button>
                 <button class="btn x">x</button>
                 <button class="btn x">x</button>
-                <button class="btn x">x</button>
-                <button class="btn x">x</button>
-                <button class="btn x">x</button>
+                <button class="btn x">x</button> -->
                 <button class="btn eraser">Eraser</button>
+                <button class="toggle">Grid</button>
                 <button class="clear">Clear</button>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="64" value="16" class="slider" id="myRange" placeholder="1-64">
-                <p class="size">Grid size:&nbsp;<span id="value"></span></p>
+            <div id="pre-slidecontainer">
+                <div id="slidecontainer">
+                    <input type="range" min="1" max="64" value="16" class="slider" id="myRange" placeholder="1-64">
+                    <p class="size">Grid size:&nbsp;<span id="value" orient="vertical"></span></p>
+                </div>
             </div>
         </main>
+        <footer id="footer">Built with ❤️ and 🍕 <br>Mariusz Ciastoń 2022&nbsp;&nbsp; <a href="https://github.com/mariuszciaston/" target="_blank" rel="noopener"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></footer>
     </div>
-    <!-- <footer id="footer">Built with ❤️ and 🍕 <br>Mariusz Ciastoń 2022&nbsp;&nbsp; <a href="https://github.com/mariuszciaston/" target="_blank" rel="noopener"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></footer> -->
 </body>
 
 </html>
