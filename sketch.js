@@ -26,7 +26,11 @@ function createGrid() {
   for (let i = 0; i < gridSize; i += 1) {
     for (let row = 0; row < gridSize; row += 1) {
       const createPixel = document.createElement('div');
-      gridOn ? createPixel.classList.add('pixel', 'toggle') : createPixel.classList.add('pixel');
+      if (gridOn) {
+        createPixel.classList.add('pixel', 'toggle');
+      } else {
+        createPixel.classList.add('pixel');
+      }
       document.querySelector(`#column-${row + 1}`).appendChild(createPixel);
     }
   }
@@ -105,18 +109,23 @@ toggle.addEventListener('click', () => {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
     item.classList.toggle('toggle');
-    item.classList.contains('toggle') ? gridOn = true : gridOn = false;
+    if (item.classList.contains('toggle')) {
+      gridOn = true;
+    } else {
+      gridOn = false;
+    }
   });
 });
 
 function clearGrid() {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
+    const pixel = item;
     if (item.classList.contains('toggle')) {
-      item.className = ('pixel toggle'),
-        item.removeAttribute('style')
+      pixel.className = ('pixel toggle');
+      item.removeAttribute('style');
     } else {
-      item.className = ('pixel');
+      pixel.className = ('pixel');
       item.removeAttribute('style');
     }
   });
