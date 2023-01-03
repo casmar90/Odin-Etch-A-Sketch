@@ -59,11 +59,61 @@ function pickColor() {
 }
 
 // RANDOM COLOR GENERATOR
-function rgb() {
+function random() {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
   return `rgb(${r},${g},${b})`;
+}
+
+function ruby() {
+  const h = 0;
+  const s = 100;
+  const l = Math.random() * (75 - 25) + 25;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function emerald() {
+  const h = 120;
+  const s = 100;
+  const l = Math.random() * (75 - 25) + 25;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function sapphire() {
+  const h = 240;
+  const s = 100;
+  const l = Math.random() * (75 - 25) + 25;
+  // const l = Math.random() * 75;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function topaz() {
+  const h = 60;
+  const s = 100;
+  const l = Math.random() * (90 - 33) + 33;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function amethyst() {
+  const h = 270;
+  const s = 100;
+  const l = Math.random() * (75 - 33) + 33;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function diamond() {
+  const h = 0;
+  const s = 0;
+  const l = Math.random() * (100 - 75) + 75;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function gray() {
+  const h = 0;
+  const s = 0;
+  const l = Math.random() * (66 - 33) + 33;
+  return `hsl(${h},${s}%,${l}%)`;
 }
 
 // DRAWING
@@ -71,8 +121,22 @@ function updatePixel(item) {
   const pixel = item;
   pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
 
-  if (selectedColor === 'rainbow') {
-    pixel.style.backgroundColor = rgb();
+  if (selectedColor === 'random') {
+    pixel.style.backgroundColor = random();
+  } else if (selectedColor === 'ruby') {
+    pixel.style.backgroundColor = ruby();
+  } else if (selectedColor === 'emerald') {
+    pixel.style.backgroundColor = emerald();
+  } else if (selectedColor === 'sapphire') {
+    pixel.style.backgroundColor = sapphire();
+  } else if (selectedColor === 'topaz') {
+    pixel.style.backgroundColor = topaz();
+  } else if (selectedColor === 'amethyst') {
+    pixel.style.backgroundColor = amethyst();
+  } else if (selectedColor === 'diamond') {
+    pixel.style.backgroundColor = diamond();
+  } else if (selectedColor === 'gray') {
+    pixel.style.backgroundColor = gray();
   } else {
     pixel.classList.add(selectedColor);
     pixel.removeAttribute('style');

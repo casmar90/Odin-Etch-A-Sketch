@@ -1,4 +1,4 @@
-fajne kolory paleta
+fajne kolory paleta zamiast RGB ???? 455-color-palette.webp
 
 Fluid, Responsive breakpoints with CSS3 transitions
 https://css-tricks.com/animated-media-queries/
@@ -9,24 +9,8 @@ https://codepen.io/MICHagency/pen/GRpvJXb
 dodać kolory / spray:
 https://thegamescabin.com/d2r-gem-guide-how-to-obtain-each/
 
+ikony emoji diamond
 
-fire czerwony pomarańczowy
-grass zielony
-woda niebieski
-yellow
-earth / ground brązowy
+tuning kolorów spray
 
-
-1 Ruby red
-2 Emerald green
-3 Sapphire blue
-4 Topaz yellow
-5 Amethyst violet
-6 Diamond white
-7 grayscale (0-255) lub grey (64-192)
-
-
-rainbow zamienić na random?
-
-8 matrix lub unicorn lub jeszcze coś innego ???
-
+random = unicorn emoji
