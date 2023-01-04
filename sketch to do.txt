@@ -1,5 +1,7 @@
 fajne kolory paleta zamiast RGB ???? 455-color-palette.webp
 
+fix grid background 
+
 Fluid, Responsive breakpoints with CSS3 transitions
 https://css-tricks.com/animated-media-queries/
 https://codepen.io/MICHagency/pen/GRpvJXb

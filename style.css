@@ -81,21 +81,22 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
+
 }
 
 .toggle {
     outline: 1px solid rgba(0, 0, 0, 1);
+}
 
-
+button.toggle {
     background-size: 40px 40px;
     background-image:
         linear-gradient(to right, black 0.9px, transparent 0px),
         linear-gradient(to bottom, black 0.9px, transparent 0px);
-        background-position: center;
-        /* background-image: none; */
+    background-position: center;
+    /* background-image: none; */
 
-🗋
-        /* background-size: 24px 24px;
+    /* background-size: 24px 24px;
         background-image:
             linear-gradient(to right, black 1px, transparent 0px),
             linear-gradient(to bottom, black 1px, transparent 0px);
@@ -172,17 +173,17 @@ button:hover {
 
 .gem {
     font-size: 32px;
-    background-color: grey;
-    color: black;
+    /* background-color: grey; */
+    /* color: black; */
 }
 
-.clear{
+.clear {
     /* font-size: 40px; */
 }
 
 #ruby {
     filter: hue-rotate(155deg);
-    background-color: hsl(-155, 100%, 50%);
+    background-color: hsl(-150, 100%, 50%);
 }
 
 #emerald {
@@ -198,11 +199,12 @@ button:hover {
 #topaz {
     filter: hue-rotate(220deg);
     background-color: hsl(-160, 100%, 75%);
+    background-color: hsl(-180, 100%, 50%);
 }
 
 #amethyst {
     filter: hue-rotate(60deg);
-    background-color: hsl(200, 100%, 50%);
+    background-color: hsl(205, 100%, 50%);
 
 }
 
@@ -218,7 +220,11 @@ button:hover {
 
 #random {
     background-color: grey;
-    /* color: black; */
+    background-color: hotpink;
+    background-color: aquamarine;
+    background-color: cyan;
+    
+    background-image: linear-gradient(-45deg, cyan 0%, magenta 100%);
 }
 
 /* .btn{
@@ -257,10 +263,11 @@ button.toggle {
     color: black;
 }
 
-.eraser{
+.eraser {
     /* border-radius:50%; */
 }
-.circle{
+
+.circle {
     /* border:1px solid black;    
     border-radius:50%;
 
