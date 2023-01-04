@@ -40,7 +40,8 @@ function createGrid() {
 function pickColor() {
   btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      selectedColor = e.target.textContent.toLowerCase();
+      // selectedColor = e.target.textContent.toLowerCase();
+      selectedColor = e.target.id;
       btns.forEach((btnStatus) => {
         btnStatus.classList.remove('active');
         e.target.classList.add('active');

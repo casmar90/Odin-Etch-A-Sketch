@@ -85,6 +85,21 @@ body {
 
 .toggle {
     outline: 1px solid rgba(0, 0, 0, 1);
+
+
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, black 0.9px, transparent 0px),
+        linear-gradient(to bottom, black 0.9px, transparent 0px);
+        background-position: center;
+        /* background-image: none; */
+
+🗋
+        /* background-size: 24px 24px;
+        background-image:
+            linear-gradient(to right, black 1px, transparent 0px),
+            linear-gradient(to bottom, black 1px, transparent 0px);
+            background-position: center; */
 }
 
 .pixel:not(.toggle):hover {
@@ -119,11 +134,6 @@ button {
     /* color: transparent !important; */
 }
 
-.btn {
-    background-color: grey;
-    /* color: black; */
-}
-
 button:hover {
     z-index: 2;
     transform: scale(1.1);
@@ -132,6 +142,11 @@ button:hover {
 
 .buttonPushed {
     transform: scale(1) !important;
+}
+
+.btn {
+    /* background-color: grey; */
+    /* color: black; */
 }
 
 .red {
@@ -155,16 +170,62 @@ button:hover {
     background-color: rgb(0, 0, 0);
 }
 
-.ruby{
-    /* background-color: rgb(255, 0, 0); */
-
-    /* background-image: linear-gradient(to bottom, transparent 50%, red 50%),
-    linear-gradient(to right, white 50%, red 50%);
-background-size: 2px 2px, 2px 2px;
-background-position: 25% 25%;
-
-text-shadow: 0 0 3px black, 0 0 5px black; */
+.gem {
+    font-size: 32px;
+    background-color: grey;
+    color: black;
 }
+
+.clear{
+    /* font-size: 40px; */
+}
+
+#ruby {
+    filter: hue-rotate(155deg);
+    background-color: hsl(-155, 100%, 50%);
+}
+
+#emerald {
+    filter: hue-rotate(280deg);
+    background-color: hsl(200, 100%, 50%);
+}
+
+#sapphire {
+    filter: hue-rotate(0deg);
+    background-color: hsl(200, 100%, 50%);
+}
+
+#topaz {
+    filter: hue-rotate(220deg);
+    background-color: hsl(-160, 100%, 75%);
+}
+
+#amethyst {
+    filter: hue-rotate(60deg);
+    background-color: hsl(200, 100%, 50%);
+
+}
+
+#diamond {
+    filter: grayscale();
+    background-color: silver;
+}
+
+#gray {
+    background-color: grey;
+    /* color: black; */
+}
+
+#random {
+    background-color: grey;
+    /* color: black; */
+}
+
+/* .btn{
+    background-color: white !important;
+    color: black;
+} */
+
 
 .black.active {
     outline: 3px solid white !important;
@@ -194,6 +255,26 @@ text-shadow: 0 0 3px black, 0 0 5px black; */
 button.toggle {
     background-color: white;
     color: black;
+}
+
+.eraser{
+    /* border-radius:50%; */
+}
+.circle{
+    /* border:1px solid black;    
+    border-radius:50%;
+
+    width: 100%;
+    height: 100%;
+     text-align: center; 
+     margin: 0; 
+
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    margin:auto; */
+
 }
 
 

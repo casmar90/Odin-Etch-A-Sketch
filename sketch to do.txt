@@ -13,4 +13,14 @@ ikony emoji diamond
 
 tuning kolorów spray
 
-random = unicorn emoji
+random = unicorn emoji lub  kostka
+
+
+------------------------
+
+eraser gumka
+css grid > on/off
+clear puste ?
+
+clear przekreślone
+eraser -> circle
