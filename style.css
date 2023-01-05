@@ -177,10 +177,6 @@ button:hover {
     /* color: black; */
 }
 
-.clear {
-    /* font-size: 40px; */
-}
-
 #ruby {
     filter: hue-rotate(155deg);
     background-color: hsl(-150, 100%, 50%);
@@ -213,9 +209,9 @@ button:hover {
     background-color: silver;
 }
 
-#gray {
+#skull {
+    /* filter: grayscale(); */
     background-color: grey;
-    /* color: black; */
 }
 
 #random {

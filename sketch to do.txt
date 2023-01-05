@@ -1,28 +1,17 @@
-fajne kolory paleta zamiast RGB ???? 455-color-palette.webp
 
-fix grid background 
+clear -> przekreślone
+eraser -> circle
+css grid > on/off
+
+------------------------
+
+fajne kolory paleta zamiast RGB ???? 455-color-palette.webp
+albo zmiana spreya pod gemami / tuning kolorów spray
+
+------------------------
 
 Fluid, Responsive breakpoints with CSS3 transitions
 https://css-tricks.com/animated-media-queries/
 https://codepen.io/MICHagency/pen/GRpvJXb
 
 ------------
-
-dodać kolory / spray:
-https://thegamescabin.com/d2r-gem-guide-how-to-obtain-each/
-
-ikony emoji diamond
-
-tuning kolorów spray
-
-random = unicorn emoji lub  kostka
-
-
-------------------------
-
-eraser gumka
-css grid > on/off
-clear puste ?
-
-clear przekreślone
-eraser -> circle

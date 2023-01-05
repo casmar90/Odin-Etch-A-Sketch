@@ -110,7 +110,7 @@ function diamond() {
   return `hsl(${h},${s}%,${l}%)`;
 }
 
-function gray() {
+function skull() {
   const h = 0;
   const s = 0;
   const l = Math.random() * (66 - 33) + 33;
@@ -136,8 +136,8 @@ function updatePixel(item) {
     pixel.style.backgroundColor = amethyst();
   } else if (selectedColor === 'diamond') {
     pixel.style.backgroundColor = diamond();
-  } else if (selectedColor === 'gray') {
-    pixel.style.backgroundColor = gray();
+  } else if (selectedColor === 'skull') {
+    pixel.style.backgroundColor = skull();
   } else {
     pixel.classList.add(selectedColor);
     pixel.removeAttribute('style');
