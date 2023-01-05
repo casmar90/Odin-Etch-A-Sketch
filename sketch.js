@@ -212,6 +212,7 @@ slider.oninput = function setGridSize() {
   gridSize = this.value;
 };
 
+
 slider.addEventListener('click', run);
 slider.addEventListener('touchend', run);
 slider.addEventListener('keydown', (e) => {
