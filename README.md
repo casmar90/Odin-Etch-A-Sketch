@@ -1,4 +1,4 @@
-# Etch a sketch
+# Etch A Sketch
 
 Drawing app created with HTML, CSS and JS.
 
