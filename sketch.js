@@ -7,8 +7,8 @@ let gridOn = false;
 const grid = document.querySelector('#grid');
 const buttons = document.querySelectorAll('button');
 const btns = document.querySelectorAll('.btn');
-const toggle = document.querySelector('.toggle');
 const clear = document.querySelector('.clear');
+const toggleGridButton = document.querySelector('.gridButton');
 const slider = document.querySelector('#myRange');
 const gridInfo = document.querySelector('#value');
 
@@ -27,7 +27,7 @@ function createGrid() {
     for (let row = 0; row < gridSize; row += 1) {
       const createPixel = document.createElement('div');
       if (gridOn) {
-        createPixel.classList.add('pixel', 'toggle');
+        createPixel.classList.add('pixel', 'addGrid');
       } else {
         createPixel.classList.add('pixel');
       }
@@ -40,15 +40,18 @@ function createGrid() {
 function pickColor() {
   btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      // selectedColor = e.target.textContent.toLowerCase();
-      selectedColor = e.target.id;
+      selectedColor = e.currentTarget.id;
+      const eraserCircle = document.querySelector('.eraserCircle');
       btns.forEach((btnStatus) => {
         btnStatus.classList.remove('active');
-        e.target.classList.add('active');
+        eraserCircle.classList.remove('active');
       });
+      e.target.classList.add('active');
+      if (selectedColor === 'eraser') {
+        eraserCircle.classList.add('active');
+      }
     });
   });
-
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
       button.classList.add('buttonPushed');
@@ -60,60 +63,62 @@ function pickColor() {
 }
 
 // RANDOM COLOR GENERATOR
-function random() {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
-  return `rgb(${r},${g},${b})`;
-}
-
 function ruby() {
-  const h = 0;
+  const h = 14;
   const s = 100;
-  const l = Math.random() * (75 - 25) + 25;
+  const l = Math.random() * (62 - 48) + 48;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function emerald() {
-  const h = 120;
-  const s = 100;
-  const l = Math.random() * (75 - 25) + 25;
+  const h = 126;
+  const s = 98;
+  const l = Math.random() * (57 - 48) + 38;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function sapphire() {
-  const h = 240;
+  const h = 200;
   const s = 100;
-  const l = Math.random() * (75 - 25) + 25;
+  const l = Math.random() * (75 - 50) + 50;
   // const l = Math.random() * 75;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function topaz() {
-  const h = 60;
+  const h = 41;
   const s = 100;
-  const l = Math.random() * (90 - 33) + 33;
+  const l = Math.random() * (74 - 56) + 56;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function amethyst() {
   const h = 270;
   const s = 100;
-  const l = Math.random() * (75 - 33) + 33;
+  const l = Math.random() * (68 - 50) + 60;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function diamond() {
   const h = 0;
   const s = 0;
-  const l = Math.random() * (100 - 75) + 75;
+  const l = Math.random() * (90 - 75) + 75;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
 function skull() {
   const h = 0;
   const s = 0;
-  const l = Math.random() * (66 - 33) + 33;
+  const l = Math.random() * (60 - 40) + 40;
+  return `hsl(${h},${s}%,${l}%)`;
+}
+
+function unicorn() {
+  const h = Math.random() * 360;
+  const s = Math.random() * (100 - 50) + 50;
+  // const s = 75;
+
+  const l = Math.random() * (60 - 40) + 60;
   return `hsl(${h},${s}%,${l}%)`;
 }
 
@@ -122,9 +127,7 @@ function updatePixel(item) {
   const pixel = item;
   pixel.classList.remove('red', 'green', 'blue', 'yellow', 'black', 'eraser');
 
-  if (selectedColor === 'random') {
-    pixel.style.backgroundColor = random();
-  } else if (selectedColor === 'ruby') {
+  if (selectedColor === 'ruby') {
     pixel.style.backgroundColor = ruby();
   } else if (selectedColor === 'emerald') {
     pixel.style.backgroundColor = emerald();
@@ -138,6 +141,8 @@ function updatePixel(item) {
     pixel.style.backgroundColor = diamond();
   } else if (selectedColor === 'skull') {
     pixel.style.backgroundColor = skull();
+  } else if (selectedColor === 'unicorn') {
+    pixel.style.backgroundColor = unicorn();
   } else {
     pixel.classList.add(selectedColor);
     pixel.removeAttribute('style');
@@ -170,11 +175,13 @@ function drawing() {
 }
 
 // TOGGLE GRID
-toggle.addEventListener('click', () => {
+toggleGridButton.addEventListener('click', () => {
+  toggleGridButton.classList.toggle('gridButtonOn');
+
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
-    item.classList.toggle('toggle');
-    if (item.classList.contains('toggle')) {
+    item.classList.toggle('addGrid');
+    if (item.classList.contains('addGrid')) {
       gridOn = true;
     } else {
       gridOn = false;
@@ -186,8 +193,8 @@ function clearGrid() {
   const items = document.querySelectorAll('.pixel');
   items.forEach((item) => {
     const pixel = item;
-    if (item.classList.contains('toggle')) {
-      pixel.className = ('pixel toggle');
+    if (item.classList.contains('addGrid')) {
+      pixel.className = ('pixel addGrid');
       item.removeAttribute('style');
     } else {
       pixel.className = ('pixel');
@@ -211,7 +218,6 @@ slider.oninput = function setGridSize() {
   gridInfo.textContent = `${this.value} x ${this.value}`;
   gridSize = this.value;
 };
-
 
 slider.addEventListener('click', run);
 slider.addEventListener('touchend', run);

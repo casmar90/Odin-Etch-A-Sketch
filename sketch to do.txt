@@ -1,17 +1,3 @@
-
-clear -> przekreślone
-eraser -> circle
-css grid > on/off
-
-------------------------
-
-fajne kolory paleta zamiast RGB ???? 455-color-palette.webp
-albo zmiana spreya pod gemami / tuning kolorów spray
-
-------------------------
-
 Fluid, Responsive breakpoints with CSS3 transitions
 https://css-tricks.com/animated-media-queries/
 https://codepen.io/MICHagency/pen/GRpvJXb
-
-------------

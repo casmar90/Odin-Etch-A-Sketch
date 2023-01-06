@@ -1,7 +1,3 @@
-/* :root {
-
-} */
-
 html,
 body {
     height: 100%;
@@ -16,8 +12,6 @@ body {
     font-size: 16px;
     touch-action: manipulation;
     margin: 0px;
-    /* background-color: aquamarine; */
-    /* background-image: linear-gradient(90deg, rgba(224, 224, 224, 1) 50%, rgba(128, 255, 209, 1) 100%); */
 }
 
 #container {
@@ -81,31 +75,31 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
-
 }
 
-
-
-.toggle {
-    outline: 1px solid rgba(0, 0, 0, 1);
+.addGrid {
+    outline: 1px solid black;
+    /* animation: gridFadeIn 1s;    */
 }
 
-button.toggle {
+.gridButton {
     background-size: 40px 40px;
     background-image:
         linear-gradient(to right, black 0.9px, transparent 0px),
         linear-gradient(to bottom, black 0.9px, transparent 0px);
     background-position: center;
-    /* background-image: none; */
-
-    /* background-size: 24px 24px;
-        background-image:
-            linear-gradient(to right, black 1px, transparent 0px),
-            linear-gradient(to bottom, black 1px, transparent 0px);
-            background-position: center; */
+    transition: 0.2s;
 }
 
-.pixel:not(.toggle):hover {
+.gridButtonOn {
+    background-size: 24px 24px;
+    background-image:
+    linear-gradient(to right, black 0.9px, transparent 0px),
+    linear-gradient(to bottom, black 0.9px, transparent 0px);
+    background-position: center;
+}
+
+.pixel:not(.addGrid):hover {
     outline: 1px solid black !important;
     outline-offset: -1px;
     z-index: 2;
@@ -128,16 +122,14 @@ button {
     width: 64px;
     height: 64px;
     aspect-ratio: 1 / 1;
-    transition: transform 0.2s ease-in-out;
     margin: 0px;
     /* iOS fix */
     outline: solid 1px black !important;
     overflow: hidden;
-
-    /* color: transparent !important; */
+    transition: transform 0.2s ease-in-out;
 }
 
-button:hover {
+button:not(.toggle):hover {
     z-index: 2;
     transform: scale(1.1);
     cursor: pointer;
@@ -147,41 +139,34 @@ button:hover {
     transform: scale(1) !important;
 }
 
-.btn {
-    /* background-color: grey; */
-    /* color: black; */
-}
-
 .red {
-    background-color: red;
+    background-color: #F73B00;
 }
 
 .green {
-    background-color: green;
+    background-color: #02C116;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #00AAFF;
 }
 
 .yellow {
+    background-color: #FFB71E;
     color: black;
-    background-color: rgb(255, 255, 0);
 }
 
 .black {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
 }
 
 .gem {
     font-size: 32px;
-    /* background-color: grey; */
-    /* color: black; */
 }
 
 #ruby {
     filter: hue-rotate(155deg);
-    background-color: hsl(-150, 100%, 50%);
+    background-color: hsl(-145, 100%, 50%);
 }
 
 #emerald {
@@ -203,7 +188,6 @@ button:hover {
 #amethyst {
     filter: hue-rotate(60deg);
     background-color: hsl(205, 100%, 50%);
-
 }
 
 #diamond {
@@ -212,24 +196,14 @@ button:hover {
 }
 
 #skull {
-    /* filter: grayscale(); */
+    filter: grayscale();
     background-color: grey;
 }
 
-#random {
-    background-color: grey;
+#unicorn {
     background-color: hotpink;
-    background-color: aquamarine;
-    background-color: cyan;
-
     background-image: linear-gradient(-45deg, cyan 0%, magenta 100%);
 }
-
-/* .btn{
-    background-color: white !important;
-    color: black;
-} */
-
 
 .black.active {
     outline: 3px solid white !important;
@@ -242,70 +216,63 @@ button:hover {
     z-index: 1;
 }
 
-
-.random {
-    /* background: linear-gradient(45deg,
-            #FE0000 16.66%,
-            #FD8C00 16.66%, 33.32%,
-            #FFE500 33.32%, 49.98%,
-            #119F0B 49.98%, 66.64%,
-            #0644B3 66.64%, 83.3%,
-            #C22EDC 83.3%);
-    text-shadow: 0 0 3px black, 0 0 5px black; */
-}
-
 .eraser,
-.clear,
-button.toggle {
+.gridButton,
+.clear {
     background-color: white;
     color: black;
 }
 
-.eraser {
-    /* border-radius:50%; */
+.eraserInner {
+    position: relative;
+  transform: translateY(-32px);
 }
 
-.circle {
-    /* border:1px solid black;    
-    border-radius:50%;
+.eraser.active {
+    outline: 1px solid black !important;
+    outline-offset: 0px;
+}
 
-    width: 100%;
-    height: 100%;
-     text-align: center; 
-     margin: 0; 
+.eraserCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    aspect-ratio: 1/1;
+    border: 1px solid silver;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 50%;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+}
 
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    text-align: center;
-    margin:auto; */
+.eraserCircle.active {
+    outline: 2px solid black !important;
+    outline-offset: -1px;
 }
 
 .clear {
     background-color: rgba(255, 255, 255, 1);
-    /* overflow: visible; */
     position: relative;
-    width: 64px;
-    height: 64px;
-
 }
 
 .clearCross {
     position: absolute;
-
-    width: 96px;
-    height: 96px;
-    background-size: 96px 96px;
-    background-image:
-        linear-gradient(to right, black 0.9px, transparent 0px),
-        linear-gradient(to bottom, black 0.9px, transparent 0px);
-    background-position: top 48px right 48px;
-    transform: translateX(-16px) translateY(-16px) rotate(45deg);
-
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    width: 64px;
+    height: 64px;
+    background-size: 64px 64px;
+    background-image:
+        linear-gradient(to right, black 0.9px, transparent 0px),
+        linear-gradient(to bottom, black 0.9px, transparent 0px);
+    background-position: top 32px right 32px;
+    transform: translateX(0px) translateY(0px) rotate(45deg);
 }
 
 .clearText {
@@ -319,22 +286,8 @@ button.toggle {
     justify-content: center;
     align-items: center;
 
-    z-index: 1;
-    color: black !important;
-    background-color: rgba(255, 255, 255, 0);
-
-    /* background-image: 
-    radial-gradient(
-        rgba(255, 255, 255, 1), 
-        rgba(255, 255, 255, 0)
-        
-        ); */
-        
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 50%);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 50%);
 }
-
-
-
 
 #slidecontainer {
     display: flex;
