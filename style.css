@@ -304,6 +304,7 @@ button:not(.toggle):hover {
     height: 32px;
     background: hsl(0, 0%, 80%);
     margin: auto;
+    border-radius: 0; /* fix for iOS */
 }
 
 .slider::-webkit-slider-thumb {
@@ -314,6 +315,7 @@ button:not(.toggle):hover {
     background: hsl(0, 0%, 30%);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    box-shadow: none; /* fix for iOS */
 }
 
 .slider::-moz-range-thumb {
