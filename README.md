@@ -9,4 +9,6 @@ Features:<br>
 • Grid on/off toggle<br>
 • Change grid size with slider<br>
 
-[Live Demo](https://mariuszciaston.github.io/Etch-A-Sketch/) :point_left:
+[Live Demo](https://mariuszciaston.github.io/Etch-A-Sketch/) :point_left: <br><br>
+
+![Etch-A-Sketch.png](Etch-A-Sketch.png)
